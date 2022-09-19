@@ -9,3 +9,23 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+/* main colors */
+
+.blue {
+    color: rgb(10, 102, 194);
+}
+
+#navLink {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.myNav .bi {
+    font-size: 1.3em;
+}
+
+.mySearch {
+    background-color: rgb(238, 243, 248) !important;
+}

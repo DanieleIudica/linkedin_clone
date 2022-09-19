@@ -58,9 +58,7 @@ button.mx-2:nth-child(1){
   margin-left: 0 !important;
 }
 
-.icona_Profilo{
-  margin-right: 20px;
-}
+
 
 .section_icon{
   align-items: center;
@@ -87,6 +85,8 @@ button.mx-2:nth-child(1){
   border: 2px solid white;
 }
 
+
+
 .element {
   
   font-size: small;
@@ -102,4 +102,8 @@ div.Carousel__ItemSet-sc-hyhecw-3:nth-child(1) > div:nth-child(1) > div:nth-chil
 
 .element p {
   margin-bottom: 1px;
+}
+
+.pencil_button {
+  border-radius: 50% !important;
 }

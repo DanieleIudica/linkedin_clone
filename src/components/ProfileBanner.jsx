@@ -3,7 +3,7 @@ import Carousel from "better-react-carousel";
 
 const ProfileBanner = ({ user }) => {
   return (
-    <div className="mainDiv ">
+    <div className="mainDiv mb-5">
       <div className="firstDiv">
         <div className="banner">
           <div className="bg_image">

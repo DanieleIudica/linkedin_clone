@@ -123,11 +123,81 @@ export const MyNavbar = () => {
                                             Scopri altri prodotti LinkedIn
                                         </div>
                                         <div className="myModal mBottom">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Cupiditate, similique impedit voluptatum dolor
-                                            repellendus ipsam esse animi earum dolore nihil et illum
-                                            illo, laborum, dignissimos nemo nesciunt culpa minima
-                                            debitis.
+                                            <div className="row text-center">
+                                                <div className="col">
+                                                    <img
+                                                        src="./modal_img/learning.png"
+                                                        alt="learning"
+                                                        width="50"
+                                                        className="modalImg"
+                                                    />
+                                                    <p>Learning</p>
+                                                </div>
+                                                <div className="col">
+                                                    <img
+                                                        src="./modal_img/insights.png"
+                                                        alt="insights"
+                                                        width="50"
+                                                        className="modalImg"
+                                                    />
+                                                    <p>Insights</p>
+                                                </div>
+                                                <div className="col">
+                                                    <img
+                                                        src="./modal_img/offerta.png"
+                                                        alt="offerta"
+                                                        width="50"
+                                                        className="modalImg"
+                                                    />
+                                                    <p>Pubblica</p>
+                                                </div>
+                                                <div className="col">
+                                                    <img
+                                                        src="./modal_img/pubblicizza.png"
+                                                        alt="pubblicizza"
+                                                        width="50"
+                                                        className="modalImg"
+                                                    />
+                                                    <p>Pubblicizza</p>
+                                                </div>
+                                                <div className="w-100"></div>
+                                                <div className="col">
+                                                    <img
+                                                        src="./modal_img/lead.png"
+                                                        alt="lead"
+                                                        width="50"
+                                                        className="modalImg"
+                                                    />
+                                                    <p>Trova lead</p>
+                                                </div>
+                                                <div className="col">
+                                                    <img
+                                                        src="./modal_img/gruppi.png"
+                                                        alt="gruppi"
+                                                        width="50"
+                                                        className="modalImg"
+                                                    />
+                                                    <p>Gruppi</p>
+                                                </div>
+                                                <div className="col">
+                                                    <img
+                                                        src="./modal_img/market.png"
+                                                        alt="market"
+                                                        width="50"
+                                                        className="modalImg"
+                                                    />
+                                                    <p>Marketplace</p>
+                                                </div>
+                                                <div className="col">
+                                                    <img
+                                                        src="./modal_img/salary.png"
+                                                        alt="salary"
+                                                        width="50"
+                                                        className="modalImg"
+                                                    />
+                                                    <p>Salary</p>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="fw-bold myModal mHeader">
                                             Assistenza alle aziende di LinkedIn

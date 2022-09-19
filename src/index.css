@@ -11,21 +11,80 @@ code {
 }
 
 /* main colors */
-
 .blue {
     color: rgb(10, 102, 194);
 }
 
+/* navbar */
 #navLink {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding: 0 20px;
 }
 
+#navLinkGrid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    border-left: 1px solid rgba(168, 168, 168, 0.557);
+}
 .myNav .bi {
-    font-size: 1.3em;
+    font-size: 1.5em;
 }
 
-.mySearch {
+#mySearch {
     background-color: rgb(238, 243, 248) !important;
+    padding-left: 50px;
+    content: icon;
+}
+
+.navImg {
+    border-radius: 50%;
+    margin-top: 1px;
+}
+
+.myNav .bi-grid-3x3-gap-fill {
+    color: rgb(90, 90, 90) !important;
+    font-size: 1.4em;
+}
+
+#navbarScrollingDropdown {
+    padding: 2px;
+}
+
+.myForm {
+    position: relative;
+}
+.bi-search {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    color: rgb(90, 90, 90) !important;
+}
+
+/* modal */
+#myModal {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+}
+
+.myModal {
+    border: 1px solid rgba(168, 168, 168, 0.557);
+    padding: 20px;
+}
+.mHeader {
+    border-bottom: none;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.mBottom {
+    padding: 20px;
+    border-radius: 0px 0px 20px 20px;
+    margin-bottom: 20px;
 }

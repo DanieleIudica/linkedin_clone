@@ -1,25 +1,31 @@
-import React from "react";
-import { Container, Nav, NavDropdown, Navbar, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Nav, NavDropdown, Navbar, Form, Button, Modal } from "react-bootstrap";
 
 export const MyNavbar = () => {
+    const [show, setShow] = useState(false);
+
+    const handleModal = () => setShow(!show);
+
     return (
-        <Navbar expand="lg" className="myNav">
+        <Navbar expand="lg" className="myNav py-0">
             <Container>
                 <Navbar.Brand href="#">
                     <i className="bi bi-linkedin blue fs-1"></i>
                 </Navbar.Brand>
-                <Form className="d-flex">
+                <Form className="d-flex myForm">
+                    <i className="bi bi-search fs-5"></i>
                     <Form.Control
                         type="search"
                         placeholder="Cerca"
-                        className="me-2 mySearch"
+                        className="me-2"
                         aria-label="Search"
+                        id="mySearch"
                     />
                 </Form>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="me-auto my-2 my-lg-0"
+                        className="ms-auto my-2 my-lg-0"
                         style={{ maxHeight: "100px" }}
                         navbarScroll
                     >
@@ -44,25 +50,130 @@ export const MyNavbar = () => {
                             Notifiche
                         </Nav.Link>
                         <div id="navLink">
-                            <img src="" alt="" width="24" />
+                            <img
+                                src="http://placekitten.com/30/30"
+                                alt=""
+                                width="32"
+                                className="mx-auto navImg"
+                            />
                             <NavDropdown title="Tu" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action3">
+                                    <div className="d-flex">
+                                        <img
+                                            src="http://placekitten.com/60/60"
+                                            alt=""
+                                            className="me-3 navImg"
+                                            width="80"
+                                            height="80"
+                                        />
+                                        <div>
+                                            <p className="fw-bold">Nome Cognome</p>
+                                            <p>Front-End dev</p>
+                                        </div>
+                                    </div>
+                                    <div className="d-grid gap-2">
+                                        <Button
+                                            variant="outline-primary"
+                                            size="sm"
+                                            className="fw-bold mt-2 justify-content-center rounded-pill"
+                                        >
+                                            Visualizza Profilo
+                                        </Button>
+                                    </div>
+                                </NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action5">
-                                    Something else here
+                                    <p className="fw-bold">Account</p>
+                                    <p>Impostazioni e Privacy</p>
+                                    <p>Guida</p>
+                                    <p>Lingua</p>
+                                </NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action5">
+                                    <p className="fw-bold">Gestisci</p>
+                                    <p>Post e Attività</p>
+                                    <p>Account pe la pubblicazione di off..</p>
+                                    <p>Lingua</p>
+                                </NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action5">
+                                    <p>Esci</p>
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </div>
-                        <div id="navLink">
+                        <div id="navLinkGrid">
                             <i className="bi bi-grid-3x3-gap-fill"></i>
-                            <NavDropdown title="Lavoro" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">
-                                    Something else here
-                                </NavDropdown.Item>
+                            <NavDropdown
+                                title="Lavoro"
+                                id="navbarScrollingDropdown"
+                                onClick={handleModal}
+                            >
+                                <Modal
+                                    show={show}
+                                    onHide={handleModal}
+                                    backdrop="static"
+                                    keyboard={false}
+                                    id="myModal"
+                                >
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Lavoro</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <div className="fw-bold myModal mHeader">
+                                            Scopri altri prodotti LinkedIn
+                                        </div>
+                                        <div className="myModal mBottom">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Cupiditate, similique impedit voluptatum dolor
+                                            repellendus ipsam esse animi earum dolore nihil et illum
+                                            illo, laborum, dignissimos nemo nesciunt culpa minima
+                                            debitis.
+                                        </div>
+                                        <div className="fw-bold myModal mHeader">
+                                            Assistenza alle aziende di LinkedIn
+                                        </div>
+                                        <div className="myModal">
+                                            <p>
+                                                <span className="fw-bold">Talent Solutions</span>
+                                                <br />
+                                                <span>Trova, attrai, assumi</span>
+                                            </p>
+                                            <p>
+                                                <span className="fw-bold">Sales Solutions</span>
+                                                <br />
+                                                <span>Sblocca nuove opportunità di vendita</span>
+                                            </p>
+                                            <p>
+                                                <span className="fw-bold">
+                                                    Pubblica offerta di lavoro gratuita
+                                                </span>
+                                                <br />
+                                                <span>Pubblica offerta di lavoro gratuita</span>
+                                            </p>
+                                            <p>
+                                                <span className="fw-bold">Marketing Solutions</span>
+                                                <br />
+                                                <span>
+                                                    Acquisisci clienti e fai crescere la tua azienda
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span className="fw-bold">Learning Solutions</span>
+                                                <br />
+                                                <span>
+                                                    Promuovi l'acquisizione di competenze nella tua
+                                                    organizzazione
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div className="myModal mBottom">
+                                            <p className="fw-bold">
+                                                Crea una pagina aziendale{" "}
+                                                <i class="bi bi-plus-lg"></i>
+                                            </p>
+                                        </div>
+                                    </Modal.Body>
+                                </Modal>
                             </NavDropdown>
                         </div>
                         <Nav.Link href="#action2" id="navLink">

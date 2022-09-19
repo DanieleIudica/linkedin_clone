@@ -1,4 +1,4 @@
-import { Navbar } from "react-bootstrap";
+import { Navbar } from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import NotFound from "./components/NotFound";

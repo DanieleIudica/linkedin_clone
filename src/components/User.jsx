@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { setMeAction } from "../redux/action";
 import MainUser from "./MainUser";
 
 export const User = () => {
   const [user, setUser] = useState(null);
+  const dispatch = useDispatch()
+  const me = useSelector((state) => state.user.me)
 
   useEffect(() => {
-    fetchUser();
+   // fetchUser();
+   dispatch(setMeAction())
+   
   }, []);
 
   const fetchUser = async () => {
@@ -24,7 +30,7 @@ export const User = () => {
 
       if (response.ok) {
         let data = await response.json();
-        setUser(data);
+        setMeAction(data);
         console.log(data);
       }
     } catch (err) {
@@ -32,11 +38,11 @@ export const User = () => {
     }
   };
   return (
-    <Container fluid className="mt-4">
-      {user && (
+    <Container className="mt-4">
+      {me && (
         <Row>
           <Col xs={8}>
-            <MainUser user={user} />
+            <MainUser />
           </Col>
 
           <Col xs={4}>

@@ -99,3 +99,11 @@ code {
 .modalImg:hover {
     box-shadow: 1px 3px 5px rgba(130, 130, 130, 0.665);
 }
+
+.myModal span {
+    cursor: pointer;
+}
+
+.myModal span:hover {
+    text-decoration: underline;
+}

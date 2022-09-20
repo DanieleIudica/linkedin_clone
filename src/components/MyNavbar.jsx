@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Nav, NavDropdown, Navbar, Form, Button, Modal } from "react-bootstrap";
 import { setDarkAction, setLightAction } from "../redux/action";
+import { useNavigate } from "react-router-dom";
 
 export const MyNavbar = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
     const me = useSelector((state) => state.user.me);
@@ -19,7 +21,7 @@ export const MyNavbar = () => {
             style={theme ? styles.light : styles.dark}
         >
             <Container>
-                <Navbar.Brand href="#">
+                <Navbar.Brand>
                     <i className="bi bi-linkedin blue fs-1"></i>
                 </Navbar.Brand>
                 <Form className="d-flex myForm">
@@ -39,23 +41,30 @@ export const MyNavbar = () => {
                         style={{ maxHeight: "100px" }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1" id="navLink">
+                        <Nav.Link
+                            id="navLink"
+                            onClick={() => {
+                                setTimeout(() => {
+                                    navigate("/");
+                                }, 500);
+                            }}
+                        >
                             <i className="bi bi-house-door-fill"></i>
                             Home
                         </Nav.Link>
-                        <Nav.Link href="#action2" id="navLink">
+                        <Nav.Link id="navLink">
                             <i className="bi bi-people-fill"></i>
                             Rete
                         </Nav.Link>
-                        <Nav.Link href="#action2" id="navLink">
+                        <Nav.Link id="navLink">
                             <i className="bi bi-briefcase-fill"></i>
                             Lavoro
                         </Nav.Link>
-                        <Nav.Link href="#action2" id="navLink">
+                        <Nav.Link id="navLink">
                             <i className="bi bi-chat-left-dots-fill"></i>
                             Messaggistica
                         </Nav.Link>
-                        <Nav.Link href="#action2" id="navLink">
+                        <Nav.Link id="navLink">
                             <i className="bi bi-bell-fill"></i>
                             Notifiche
                         </Nav.Link>
@@ -67,32 +76,40 @@ export const MyNavbar = () => {
                                 className="mx-auto navImg"
                             />
                             <NavDropdown title="Tu" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">
-                                    <div className="d-flex">
-                                        <img
-                                            src={me.image}
-                                            alt=""
-                                            className="me-3 navImg"
-                                            width="80"
-                                            height="80"
-                                        />
-                                        <div>
-                                            <p className="fw-bold">
-                                                {me.name} {me.surname}
-                                            </p>
-                                            <p>{me.title}</p>
+                                {me && (
+                                    <NavDropdown.Item>
+                                        <div className="d-flex">
+                                            <img
+                                                src={me.image}
+                                                alt=""
+                                                className="me-3 navImg"
+                                                width="80"
+                                                height="80"
+                                            />
+                                            <div>
+                                                <p className="fw-bold">
+                                                    {me.name} {me.surname}
+                                                </p>
+                                                <p>{me.title}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="d-grid gap-2">
-                                        <Button
-                                            variant="outline-primary"
-                                            size="sm"
-                                            className="fw-bold mt-2 justify-content-center rounded-pill"
-                                        >
-                                            Visualizza Profilo
-                                        </Button>
-                                    </div>
-                                </NavDropdown.Item>
+                                        <div className="d-grid gap-2">
+                                            <Button
+                                                variant="outline-primary"
+                                                size="sm"
+                                                className="fw-bold mt-2 justify-content-center rounded-pill"
+                                                onClick={() => {
+                                                    setTimeout(() => {
+                                                        navigate("/");
+                                                    }, 500);
+                                                }}
+                                            >
+                                                Visualizza Profilo
+                                            </Button>
+                                        </div>
+                                    </NavDropdown.Item>
+                                )}
+
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item>
                                     <p className="fw-bold">Account</p>
@@ -267,7 +284,7 @@ export const MyNavbar = () => {
                                 </Modal>
                             </NavDropdown>
                         </div>
-                        <Nav.Link href="#action2" id="navLink">
+                        <Nav.Link id="navLink">
                             <i className="bi bi-signpost-fill"></i>
                             Pubblica offerta di lavoro gratuita
                         </Nav.Link>

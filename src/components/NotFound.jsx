@@ -1,10 +1,8 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NotFound = () => {
     const navigate = useNavigate();
-    // navigate è una funzione
-    // serve a redirezionare l'utente ad una nuova rotta via codice
 
     return (
         <Container>
@@ -16,7 +14,7 @@ const NotFound = () => {
                         onClick={() => {
                             setTimeout(() => {
                                 navigate("/");
-                            }, 1000);
+                            }, 500);
                         }}
                     >
                         Back to Home

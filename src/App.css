@@ -12,7 +12,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +34,76 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+/* Main User */
+
+.mainDiv{
+  border: 1px solid rgba(128, 128, 128, 0.355);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bg_image_container{
+  overflow: hidden;
+  height: 22vh;
+}
+
+.profilo_btn{
+  border-radius: 50px !important;
+}
+button.mx-2:nth-child(1){
+  margin-left: 0 !important;
+}
+
+
+
+.section_icon{
+  align-items: center;
+}
+
+
+.profile_foto_container{
+  overflow: hidden;
+    margin-top: -100px;
+    width: 30vw;
+}
+
+.myContainer{
+  width: 97% !important;
+  margin: auto !important;
+}
+
+.profile_foto {
+  justify-content: space-between;
+}
+
+.profile_foto_image {
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+
+
+.element {
+  
+  font-size: small;
+  border-radius: 15px;
+  padding: 10px;
+  width: 90%;
+  border: 2px solid rgba(128, 128, 128, 0.355) ;
+}
+
+div.Carousel__ItemSet-sc-hyhecw-3:nth-child(1) > div:nth-child(1) > div:nth-child(1){
+  background-color: rgba(128, 128, 128, 0.355);
+}
+
+.element p {
+  margin-bottom: 1px;
+}
+
+.pencil_button {
+  border-radius: 50% !important;
 }

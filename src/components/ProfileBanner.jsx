@@ -1,7 +1,9 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Carousel from "better-react-carousel";
+import { useSelector } from "react-redux";
 
-const ProfileBanner = ({ user }) => {
+const ProfileBanner = () => {
+    const me = useSelector((state) => state.user.me);
     return (
         <div className="mainDiv mb-5">
             <div className="firstDiv">
@@ -17,7 +19,7 @@ const ProfileBanner = ({ user }) => {
                                 <div className="profile_foto_container">
                                     <img
                                         className="profile_foto_image"
-                                        src={user.image}
+                                        src={me.image}
                                         width="52%"
                                         alt=""
                                     />
@@ -60,16 +62,16 @@ const ProfileBanner = ({ user }) => {
                                     <Col>
                                         <div>
                                             <h2>
-                                                {user.name} {user.surname}
+                                                {me.name} {me.surname}
                                             </h2>
-                                            <h5>{user.title}</h5>
+                                            <h5>{me.title}</h5>
                                         </div>
                                     </Col>
                                     <Col>{/* <h4>Sezione icona Epicode</h4> */}</Col>
                                 </Row>
 
                                 <div className="d-flex mb-3">
-                                    <span className="me-3">{user.area} </span>{" "}
+                                    <span className="me-3">{me.area} </span>{" "}
                                     <span>
                                         {" "}
                                         <a href="#!">Informazioni di contatto</a>

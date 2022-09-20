@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Nav, NavDropdown, Navbar, Form, Button, Modal } from "react-bootstrap";
+import { setDarkAction, setLightAction } from "../redux/action";
 const styles = {
     light: {
         backgroundColor: "white",
@@ -9,14 +11,10 @@ const styles = {
     },
 };
 export const MyNavbar = () => {
+    const dispatch = useDispatch();
     const [show, setShow] = useState(false);
-    const [theme, setTheme] = useState(true);
-    const lightTheme = () => {
-        setTheme(true);
-    };
-    const darkTheme = () => {
-        setTheme(false);
-    };
+    const theme = useSelector((state) => state.user.theme);
+
     const handleModal = () => setShow(!show);
 
     return (
@@ -102,8 +100,8 @@ export const MyNavbar = () => {
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action5">
                                     <p className="fw-bold">Account</p>
-                                    <p onClick={lightTheme}>Modalità Chiara</p>
-                                    <p onClick={darkTheme}>Modalità Scura</p>
+                                    <p onClick={dispatch(setLightAction())}>Modalità Chiara</p>
+                                    <p onClick={dispatch(setDarkAction())}>Modalità Scura</p>
                                     <p>Lingua</p>
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />

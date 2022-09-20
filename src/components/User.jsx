@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setMeAction } from "../redux/action";
+import { getAllExperiencesAction, setMeAction } from "../redux/action";
 import MainUser from "./MainUser";
 import { Sidebar } from "./Sidebar";
 
@@ -10,10 +10,14 @@ export const User = () => {
     const me = useSelector((state) => state.user.me);
 
     useEffect(() => {
-        dispatch(setMeAction());
-
+       dispatch(setMeAction());      
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(()=>{
+      if(me)
+      dispatch(getAllExperiencesAction(me._id));
+    },[me])
 
     return (
         <Container className="mt-4">

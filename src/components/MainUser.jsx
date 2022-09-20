@@ -9,7 +9,7 @@ const MainUser = ({ user }) => {
         <Container>
             <ProfileBanner user={user} />
             <ProfileInformation user={user} />
-            <Experiences user={user} />
+            <Experiences />
         </Container>
     );
 };

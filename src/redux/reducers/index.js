@@ -1,4 +1,4 @@
-import { SET_DARK_THEME, SET_LIGHT_THEME, SET_ME, UPDATE_ME, GET_ALL_USERS } from "../action";
+import { SET_DARK_THEME, SET_LIGHT_THEME, SET_ME, UPDATE_ME, GET_ALL_USERS, GET_ALL_EXPERIENCES, POST_NEW_EXPERIENCES } from "../action";
 
 const initialState = {
     user: {
@@ -63,6 +63,25 @@ const mainReducer = (state = initialState, action) => {
                     me: action.payload,
                 },
             };
+
+        case GET_ALL_EXPERIENCES:
+            return{
+                ...state,
+                user:{
+                    ...state.user,
+                    experiences: action.payload
+                }
+            }
+
+            case POST_NEW_EXPERIENCES:
+            return{
+                ...state,
+                user:{
+                    ...state.user,
+                    experiences: [...state.user.experiences, action.payload]
+                }
+            }
+
         default:
             return state;
     }

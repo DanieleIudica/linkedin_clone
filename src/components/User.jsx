@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setMeAction } from "../redux/action";
 import MainUser from "./MainUser";
+import { Sidebar } from "./Sidebar";
 
 export const User = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export const User = () => {
                     </Col>
 
                     <Col xs={4}>
-                        <h1>SideBar</h1>
+                        <Sidebar />
                     </Col>
                 </Row>
             )}

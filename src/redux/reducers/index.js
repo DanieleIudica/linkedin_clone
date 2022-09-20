@@ -1,4 +1,4 @@
-import { SET_DARK_THEME, SET_LIGHT_THEME, SET_ME } from "../action";
+import { SET_DARK_THEME, SET_LIGHT_THEME, SET_ME, GET_ALL_USERS } from "../action";
 
 const initialState = {
     user: {
@@ -14,6 +14,8 @@ const initialState = {
             },
         },
     },
+
+    users: { allUsers: [] },
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -40,6 +42,14 @@ const mainReducer = (state = initialState, action) => {
                 user: {
                     ...state.user,
                     theme: action.payload,
+                },
+            };
+        case GET_ALL_USERS:
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    allUsers: action.payload,
                 },
             };
         default:

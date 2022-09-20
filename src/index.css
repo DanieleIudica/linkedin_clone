@@ -107,3 +107,34 @@ code {
 .myModal span:hover {
     text-decoration: underline;
 }
+
+/* sidebar */
+
+.sideDiv {
+    border: 1px solid rgba(128, 128, 128, 0.355);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.sideDiv a {
+    color: rgb(98, 98, 98);
+    text-decoration: none;
+    display: block;
+    line-height: 2.5;
+}
+
+.sideDiv a:hover {
+    color: rgb(98, 98, 98);
+    text-decoration: underline;
+}
+
+.divider {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+.sideImg {
+    border-radius: 50%;
+    margin-right: 20px;
+}

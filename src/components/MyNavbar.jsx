@@ -68,15 +68,10 @@ export const MyNavbar = () => {
                             <i className="bi bi-bell-fill"></i>
                             Notifiche
                         </Nav.Link>
-                        <div id="navLink">
-                            <img
-                                src="http://placekitten.com/30/30"
-                                alt=""
-                                width="32"
-                                className="mx-auto navImg"
-                            />
-                            <NavDropdown title="Tu" id="navbarScrollingDropdown">
-                                {me && (
+                        {me && (
+                            <div id="navLink">
+                                <img src={me.image} alt="" width="32" className="mx-auto navImg" />
+                                <NavDropdown title="Tu" id="navbarScrollingDropdown">
                                     <NavDropdown.Item>
                                         <div className="d-flex">
                                             <img
@@ -108,36 +103,38 @@ export const MyNavbar = () => {
                                             </Button>
                                         </div>
                                     </NavDropdown.Item>
-                                )}
 
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item>
-                                    <p className="fw-bold">Account</p>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    <p onClick={() => dispatch(setLightAction())}>
-                                        Modalità Chiara
-                                    </p>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    <p onClick={() => dispatch(setDarkAction())}>Modalità Scura</p>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    <p>Lingua</p>
-                                </NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item>
-                                    <p className="fw-bold">Gestisci</p>
-                                    <p>Post e Attività</p>
-                                    <p>Account pe la pubblicazione di off..</p>
-                                    <p>Lingua</p>
-                                </NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item>
-                                    <p>Esci</p>
-                                </NavDropdown.Item>
-                            </NavDropdown>
-                        </div>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item>
+                                        <p className="fw-bold">Account</p>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item>
+                                        <p onClick={() => dispatch(setLightAction())}>
+                                            Modalità Chiara
+                                        </p>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item>
+                                        <p onClick={() => dispatch(setDarkAction())}>
+                                            Modalità Scura
+                                        </p>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item>
+                                        <p>Lingua</p>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item>
+                                        <p className="fw-bold">Gestisci</p>
+                                        <p>Post e Attività</p>
+                                        <p>Account pe la pubblicazione di off..</p>
+                                        <p>Lingua</p>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item>
+                                        <p>Esci</p>
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                            </div>
+                        )}
                         <div id="navLinkGrid">
                             <i className="bi bi-grid-3x3-gap-fill"></i>
                             <NavDropdown

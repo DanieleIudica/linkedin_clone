@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Nav, NavDropdown, Navbar, Form, Button, Modal } from "react-bootstrap";
 import { setDarkAction, setLightAction } from "../redux/action";
-const styles = {
-    light: {
-        backgroundColor: "white",
-    },
-    dark: {
-        backgroundColor: "rgb(29, 34, 38)",
-    },
-};
+
 export const MyNavbar = () => {
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
     const theme = useSelector((state) => state.user.theme);
-
+    const styles = useSelector((state) => state.user.styles);
     const handleModal = () => setShow(!show);
 
     return (
@@ -98,21 +91,23 @@ export const MyNavbar = () => {
                                     </div>
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">
+                                <NavDropdown.Item>
                                     <p className="fw-bold">Account</p>
-                                    <p onClick={dispatch(setLightAction())}>Modalità Chiara</p>
-                                    <p onClick={dispatch(setDarkAction())}>Modalità Scura</p>
+                                    <p onClick={() => dispatch(setLightAction())}>
+                                        Modalità Chiara
+                                    </p>
+                                    <p onClick={() => dispatch(setDarkAction())}>Modalità Scura</p>
                                     <p>Lingua</p>
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">
+                                <NavDropdown.Item>
                                     <p className="fw-bold">Gestisci</p>
                                     <p>Post e Attività</p>
                                     <p>Account pe la pubblicazione di off..</p>
                                     <p>Lingua</p>
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">
+                                <NavDropdown.Item>
                                     <p>Esci</p>
                                 </NavDropdown.Item>
                             </NavDropdown>

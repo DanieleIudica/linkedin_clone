@@ -4,6 +4,15 @@ const initialState = {
     user: {
         me: null,
         theme: true,
+        styles: {
+            light: {
+                backgroundColor: "white",
+            },
+            dark: {
+                backgroundColor: "rgb(29, 34, 38)",
+                color: "white",
+            },
+        },
     },
 };
 

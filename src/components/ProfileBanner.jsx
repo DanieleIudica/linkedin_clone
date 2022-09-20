@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 
 const ProfileBanner = () => {
     const me = useSelector((state) => state.user.me);
+    const theme = useSelector((state) => state.user.theme);
+    const styles = useSelector((state) => state.user.styles);
     return (
-        <div className="mainDiv mb-5">
+        <div className="mainDiv mb-5" style={theme ? styles.light : styles.dark}>
             <div className="firstDiv">
                 <div className="banner">
                     <div className="bg_image">

@@ -1,4 +1,15 @@
-import { SET_DARK_THEME, SET_LIGHT_THEME, SET_ME, UPDATE_ME, GET_ALL_USERS, GET_ALL_EXPERIENCES, POST_NEW_EXPERIENCES } from "../action";
+import {
+    SET_DARK_THEME,
+    SET_LIGHT_THEME,
+    SET_ME,
+    UPDATE_ME,
+    GET_ALL_USERS,
+    GET_ALL_EXPERIENCES,
+    POST_NEW_EXPERIENCES,
+    PUT_EXPERIENCES,
+    SET_EXP_ID,
+    GET_EXPERIENCE,
+} from "../action";
 
 const initialState = {
     user: {
@@ -14,7 +25,9 @@ const initialState = {
             },
         },
 
-        experiences: [1, 2, 3],
+        experiences: [],
+        expId: "",
+        singleExp: null,
     },
 
     users: { allUsers: [] },
@@ -65,23 +78,48 @@ const mainReducer = (state = initialState, action) => {
             };
 
         case GET_ALL_EXPERIENCES:
-            return{
+            return {
                 ...state,
-                user:{
+                user: {
                     ...state.user,
-                    experiences: action.payload
-                }
-            }
+                    experiences: action.payload,
+                },
+            };
 
-            case POST_NEW_EXPERIENCES:
-            return{
+        case POST_NEW_EXPERIENCES:
+            return {
                 ...state,
-                user:{
+                user: {
                     ...state.user,
-                    experiences: [...state.user.experiences, action.payload]
-                }
-            }
+                    experiences: [...state.user.experiences, action.payload],
+                },
+            };
 
+        case PUT_EXPERIENCES:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    experiences: [...state.user.experiences],
+                },
+            };
+
+        case SET_EXP_ID:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    expId: action.payload,
+                },
+            };
+        case GET_EXPERIENCE:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    singleExp: action.payload,
+                },
+            };
         default:
             return state;
     }

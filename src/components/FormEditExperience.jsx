@@ -1,17 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { postNewExperiencesAction } from "../redux/action";
+import {
+    getExperienceAction,
+    postNewExperiencesAction,
+    putExperienceAction,
+} from "../redux/action";
 
-const FormAddExperience = (props) => {
+const FormEditExperience = (props) => {
     const dispatch = useDispatch();
+
     const [role, setRole] = useState("");
     const [company, setCompany] = useState("");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [description, setDescription] = useState("");
     const [area, setArea] = useState("");
+    const expId = useSelector((state) => state.user.expId);
     const me = useSelector((state) => state.user.me);
+    const singleExp = useSelector((state) => state.user.singleExp);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,8 +31,24 @@ const FormAddExperience = (props) => {
             area: area,
             description: description,
         };
-        dispatch(postNewExperiencesAction(me._id, experience));
+        dispatch(putExperienceAction(me._id, props.exp._id, experience));
     };
+
+    useEffect(() => {
+        dispatch(getExperienceAction(me._id, expId));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        if (singleExp) {
+            setRole(singleExp.role);
+            setCompany(singleExp.company);
+            setStartDate(singleExp.startDate);
+            setEndDate(singleExp.endDate);
+            setArea(singleExp.area);
+            setDescription(singleExp.description);
+        }
+    }, [singleExp]);
 
     return (
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -33,6 +56,7 @@ const FormAddExperience = (props) => {
                 <Modal.Title id="contained-modal-title-vcenter">Aggiungi Esperienza</Modal.Title>
             </Modal.Header>
             <Modal.Body>
+                {console.log(props.expId)}
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicNome">
                         <Form.Label>Role</Form.Label>
@@ -112,4 +136,4 @@ const FormAddExperience = (props) => {
     );
 };
 
-export default FormAddExperience;
+export default FormEditExperience;

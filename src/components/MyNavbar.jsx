@@ -6,7 +6,6 @@ const styles = {
     },
     dark: {
         backgroundColor: "rgb(29, 34, 38)",
-        color: "white",
     },
 };
 export const MyNavbar = () => {

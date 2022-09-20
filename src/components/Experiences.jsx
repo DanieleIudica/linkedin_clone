@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setExpIdAction } from "../redux/action";
 import FormAddExperience from "./FormAddExperience";
@@ -34,19 +34,21 @@ export const Experiences = () => {
                     experiences.map((experience, i) => (
                         <div key={i}>
                             <div className="d-flex mt-3" key={i}>
-                                <img
-                                    src="http://placekitten.com/200/200"
-                                    width="50"
-                                    height="50"
-                                    alt=""
-                                    className="sideImg"
-                                />
+                                <Col xs={2}>
+                                    <img
+                                        src="http://placekitten.com/200/200"
+                                        width="50"
+                                        height="50"
+                                        alt=""
+                                        className="sideImg"
+                                    />
+                                </Col>
 
-                                <div>
-                                    <div className="d-flex">
-                                        <p className="fw-bold">{experience.role}</p>
+                                <Col xs={10}>
+                                    <span className="fw-bold d-flex">
+                                        {experience.role}
                                         <Button
-                                            className="pencil_button fs-4 ms-auto"
+                                            className="pencil_button ms-auto"
                                             size="sm"
                                             variant="outline-light"
                                             onClick={() => {
@@ -54,17 +56,17 @@ export const Experiences = () => {
                                                 setEditModalShow(true);
                                             }}
                                         >
-                                            <i className="bi bi-pencil text-dark"></i>
+                                            <i className="bi bi-pencil text-dark fs-5"></i>
                                         </Button>
-                                    </div>
-                                    <br />
+                                    </span>
+
                                     <span>{experience.company}</span>
                                     <br />
                                     <span>
                                         {experience.startDate}, {experience.endDate}
                                     </span>
                                     <p>{experience.description}</p>
-                                </div>
+                                </Col>
                             </div>
                             <div className="divider"></div>
                         </div>

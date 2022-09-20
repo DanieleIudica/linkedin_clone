@@ -100,14 +100,13 @@ const FormAddExperience = (props) => {
                             placeholder="Description..."
                         />
                     </Form.Group>
-                    <Button onClick={props.onHide} variant="primary" type="submit">
-                        Submit
-                    </Button>
+                    <div className="text-end">
+                        <Button onClick={props.onHide} variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </div>
                 </Form>
             </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
         </Modal>
     );
 };

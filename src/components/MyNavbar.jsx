@@ -6,6 +6,7 @@ import { setDarkAction, setLightAction } from "../redux/action";
 export const MyNavbar = () => {
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
+    const me = useSelector((state) => state.user.me);
     const theme = useSelector((state) => state.user.theme);
     const styles = useSelector((state) => state.user.styles);
     const handleModal = () => setShow(!show);
@@ -69,15 +70,17 @@ export const MyNavbar = () => {
                                 <NavDropdown.Item href="#action3">
                                     <div className="d-flex">
                                         <img
-                                            src="http://placekitten.com/60/60"
+                                            src={me.image}
                                             alt=""
                                             className="me-3 navImg"
                                             width="80"
                                             height="80"
                                         />
                                         <div>
-                                            <p className="fw-bold">Nome Cognome</p>
-                                            <p>Front-End dev</p>
+                                            <p className="fw-bold">
+                                                {me.name} {me.surname}
+                                            </p>
+                                            <p>{me.title}</p>
                                         </div>
                                     </div>
                                     <div className="d-grid gap-2">
@@ -93,10 +96,16 @@ export const MyNavbar = () => {
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item>
                                     <p className="fw-bold">Account</p>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
                                     <p onClick={() => dispatch(setLightAction())}>
                                         Modalità Chiara
                                     </p>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
                                     <p onClick={() => dispatch(setDarkAction())}>Modalità Scura</p>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
                                     <p>Lingua</p>
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />

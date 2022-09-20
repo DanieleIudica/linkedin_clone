@@ -1,45 +1,122 @@
 import React from "react";
 
 
-export const MyFooter = () => {
-  return (
-    <div class="bg-light fs-6 ">
-        
-      <ul class="d-flex">
-        <ol>Informazioni</ol>
-        <ol>Accessibilità</ol>
-        <ol>Talent Solutions</ol>
-      </ul>
-      <ul class="d-flex">
-        <ol>Linee guida della community</ol>
-        <ol>Carriera</ol>
-        <ol>Soluzioni di marketing</ol>
-      </ul>
-      <ul class="d-flex">
-        <ol>Privacy e condizioni</ol>
-        <ol>Opzioni di annuncio</ol>
-        <ol>Pubblitcità</ol>
-      </ul>
-      <ul class="d-flex">
-        <ol>Sales Solutions</ol>
-        <ol>Mobile</ol>
-        <ol>Piccole imprese</ol>
-      </ul>
-      <ul class = "d-flex">
-        <ol>Centro sicurezza</ol>
-      </ul>
-      
-<br></br>
-<div class="d-flex" >
-      <label for="cars">Scegli una lingua:</label>
 
-<select name="cars" id="cars">
-  <option value="italiano">Italiano</option>
-  <option value="Tedesco">Tedesco</option>
-  <option value="Inglese">Inglese</option>
+export const MyFooter = () => {
+  return (<footer class="py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Informazioni</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Linee guida della community</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Privacy e condizioni</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Sales Solutions</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Centro sicurezza</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+       
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Accessibilità</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Carriera</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Opzioni di annuncio</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Mobile</a></li>
+
+        </ul>
+      </div>
+
+
+
+
+
+
+      <div class="col-6 col-md-2 mb-3">
+       
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Talent Solutions</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Soluzioni di marketing</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Pubblicità</a></li>
+          <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Piccole imprese</a></li>
+
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+       
+       <ul class="nav flex-column">
+         <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Domande?</a></li>
+         <li class="nav-item mb-2"><a href="#c" class="nav-link p-0 text-muted">Gestisci il tuo account e la tua privacy</a></li>
+         
+         <div class="col-6 col-md-2 mb-3">
+          <ul class="nav flex-column">
+
+
+          <label for="lang">lingua:</label>
+
+<select name="lang" id="lang">
+  <option value="Italiano">Italiano</option>
   <option value="Spagnolo">Spagnolo</option>
+  <option value="Inglese">Inglese</option>
+  <option value="Tedesco">Tedesco</option>
 </select>
-</div>
+
+
+       
+     
+  
+  
+
+        </ul>
+
+
+
+
+
+        
+      </div>
+
+       </ul>
+     </div>
+
+
+
+
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          
+         
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+           
+            
+          </div>
+        </form>
+      </div>
     </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>LinkedIn Corporation © 2022</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="#twitter"><svg class="bi" width="24" height="24"></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#instagram"><svg class="bi" width="24" height="24"></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#facebook"><svg class="bi" width="24" height="24"></svg></a></li>
+      </ul>
+    </div>
+  </footer>
+
+
+
+
+
+
   );
-};
+
+          
+        
+      
+
+
+}
+  

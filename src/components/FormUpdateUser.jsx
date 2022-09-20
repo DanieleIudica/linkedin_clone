@@ -70,7 +70,7 @@ const handleSubmit = (e) => {
         <Form.Label>Bio</Form.Label>
         <Form.Control onChange={(e)=>{setBio(e.target.value)}} value={bio} as="textarea" placeholder="Qualcosa di te..." />
       </Form.Group>
-      <Button  variant="primary" type="submit">
+      <Button onClick={props.onHide} variant="primary" type="submit">
         Submit
       </Button>
     </Form>

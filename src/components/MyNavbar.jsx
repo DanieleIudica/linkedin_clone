@@ -1,13 +1,32 @@
 import React, { useState } from "react";
 import { Container, Nav, NavDropdown, Navbar, Form, Button, Modal } from "react-bootstrap";
-
+const styles = {
+    light: {
+        backgroundColor: "white",
+    },
+    dark: {
+        backgroundColor: "rgb(29, 34, 38)",
+        color: "white",
+    },
+};
 export const MyNavbar = () => {
     const [show, setShow] = useState(false);
-
+    const [theme, setTheme] = useState(true);
+    const lightTheme = () => {
+        setTheme(true);
+    };
+    const darkTheme = () => {
+        setTheme(false);
+    };
     const handleModal = () => setShow(!show);
 
     return (
-        <Navbar expand="lg" className="myNav py-0">
+        <Navbar
+            expand="lg"
+            variant={theme ? "light" : "dark"}
+            className="myNav py-0"
+            style={theme ? styles.light : styles.dark}
+        >
             <Container>
                 <Navbar.Brand href="#">
                     <i className="bi bi-linkedin blue fs-1"></i>
@@ -84,8 +103,8 @@ export const MyNavbar = () => {
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action5">
                                     <p className="fw-bold">Account</p>
-                                    <p>Impostazioni e Privacy</p>
-                                    <p>Guida</p>
+                                    <p onClick={lightTheme}>Modalità Chiara</p>
+                                    <p onClick={darkTheme}>Modalità Scura</p>
                                     <p>Lingua</p>
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
@@ -112,6 +131,7 @@ export const MyNavbar = () => {
                                     show={show}
                                     onHide={handleModal}
                                     backdrop="static"
+                                    variant="dark"
                                     keyboard={false}
                                     id="myModal"
                                 >
@@ -237,10 +257,10 @@ export const MyNavbar = () => {
                                             </p>
                                         </div>
                                         <div className="myModal mBottom">
-                                            <p className="fw-bold">
+                                            <span className="fw-bold">
                                                 Crea una pagina aziendale{" "}
                                                 <i class="bi bi-plus-lg"></i>
-                                            </p>
+                                            </span>
                                         </div>
                                     </Modal.Body>
                                 </Modal>

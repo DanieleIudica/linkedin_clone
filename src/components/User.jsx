@@ -10,14 +10,14 @@ export const User = () => {
     const me = useSelector((state) => state.user.me);
 
     useEffect(() => {
-       dispatch(setMeAction());      
+        dispatch(setMeAction());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    useEffect(()=>{
-      if(me)
-      dispatch(getAllExperiencesAction(me._id));
-    },[me])
+    useEffect(() => {
+        if (me) dispatch(getAllExperiencesAction(me._id));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [me]);
 
     return (
         <Container className="mt-4">

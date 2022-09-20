@@ -24,7 +24,7 @@ export const setMeAction = () => {
                 let data = await response.json();
                 dispatch({
                     type: SET_ME,
-                    payload: data, // noi dobbiamo fornire al reducer il prodotto finito!
+                    payload: data,
                 });
                 console.log(data);
             }

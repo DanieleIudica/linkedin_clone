@@ -5,7 +5,6 @@ import { getAllUsersAction } from "../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 
 export const Sidebar = () => {
-    // const [users, setUsers] = useState(null);
     const dispatch = useDispatch();
     const users = useSelector((state) => state.users.allUsers);
 

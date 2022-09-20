@@ -1,11 +1,12 @@
 
+
 import { Container } from "react-bootstrap";
+
 
 import ProfileBanner from "./ProfileBanner";
 import ProfileInformation from "./ProfileInformation";
 
 const MainUser = ({user}) => {
-
 
   return (
     <Container>

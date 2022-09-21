@@ -1,5 +1,6 @@
 import React from "react";
 // import { useSelector } from "react-redux";
+import FeedFooter from "./FeedFooter";
 
 export const RightFeed = () => {
     // const me = useSelector((state) => state.user.me);
@@ -16,6 +17,8 @@ export const RightFeed = () => {
             <div className="feedDiv">
                 <img src="./sidebar_img/promosso.png" alt="promosso" width="100%" />
             </div>
+
+            <FeedFooter />
         </>
     );
 };

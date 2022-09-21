@@ -81,6 +81,10 @@ button.mx-2:nth-child(1) {
     border: 2px solid white;
 }
 
+.feedFooter{
+  font-size: 0.7em !important;
+}
+
 .element {
     font-size: small;
     border-radius: 15px;
@@ -99,4 +103,14 @@ div.Carousel__ItemSet-sc-hyhecw-3:nth-child(1) > div:nth-child(1) > div:nth-chil
 
 .pencil_button {
     border-radius: 50% !important;
+}
+
+
+.feedFooter a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.feedFooter p {
+    line-height: 10px;
 }

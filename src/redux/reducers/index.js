@@ -9,6 +9,7 @@ import {
     PUT_EXPERIENCES,
     SET_EXP_ID,
     GET_EXPERIENCE,
+    GET_ALL_COMMENTS,
 } from "../action";
 
 const initialState = {
@@ -31,6 +32,7 @@ const initialState = {
     },
 
     users: { allUsers: [] },
+    comments: { allComments: [] },
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -67,6 +69,14 @@ const mainReducer = (state = initialState, action) => {
                     allUsers: action.payload,
                 },
             };
+        case GET_ALL_COMMENTS:
+            return {
+                ...state,
+                comments: {
+                    ...state.comments,
+                    allComments: action.payload,
+                },
+            };
 
         case UPDATE_ME:
             return {
@@ -94,7 +104,6 @@ const mainReducer = (state = initialState, action) => {
                     experiences: [...state.user.experiences, action.payload],
                 },
             };
-
 
         case SET_EXP_ID:
             return {

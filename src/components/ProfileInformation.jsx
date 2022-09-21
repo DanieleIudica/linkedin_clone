@@ -3,8 +3,10 @@ import { useSelector } from "react-redux";
 
 const ProfileInformation = () => {
     const me = useSelector((state) => state.user.me);
+    const theme = useSelector((state) => state.user.theme);
+    const styles = useSelector((state) => state.user.styles);
     return (
-        <div className="mainDiv mb-2 ">
+        <div className="mainDiv mb-2" style={theme ? styles.light : styles.dark}>
             <Container className="myContainer mt-3">
                 <h5 className="mb-4">
                     <b> Informazioni</b>{" "}

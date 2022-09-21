@@ -76,14 +76,32 @@ export const MainFeed = () => {
                                                 height="50"
                                             />
                                         </Col>
-                                        <Col xs={10} className="ps-4">
+                                        <Col xs={8} className="ps-4">
                                             <span className="fw-bold">{comment.username}</span>
                                             <br />
                                             <Moment format="DD-MM-YY HH:mm">
                                                 {comment.createdAt}
                                             </Moment>
                                         </Col>
-                                        <Col xs={1}>
+                                        <Col xs={3} className="text-end">
+                                            {comment._id === me._id && (
+                                                <>
+                                                    <Button
+                                                        className="pencil_button"
+                                                        size="sm"
+                                                        variant="outline-light"
+                                                    >
+                                                        <i className="bi bi-pencil text-dark fs-5"></i>
+                                                    </Button>
+                                                    <Button
+                                                        className="pencil_button"
+                                                        size="sm"
+                                                        variant="outline-light"
+                                                    >
+                                                        <i class="bi bi-trash3 text-dark fs-5 "></i>
+                                                    </Button>
+                                                </>
+                                            )}
                                             <Button
                                                 className="pencil_button"
                                                 size="sm"
@@ -99,9 +117,9 @@ export const MainFeed = () => {
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col>
+                                        <Col className="text-center">
                                             <img
-                                                src="http://placekitten.com/400/400"
+                                                src="http://placekitten.com/600/300"
                                                 alt=""
                                                 width="100%"
                                             />

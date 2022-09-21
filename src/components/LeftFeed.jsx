@@ -69,8 +69,12 @@ export const LeftFeed = () => {
                     </div>
                 </>
             )}
-            <div className="feedDiv">
-                <img src="./feedbar_img/recenti.png" alt="recenti" width="90%" />
+            <div className="feedDiv" style={theme ? styles.light : styles.dark}>
+                <img
+                    src={theme ? "./feedbar_img/recenti.png" : "./feedbar_img/recenti_dark.png"}
+                    alt=""
+                    width="90%"
+                />
             </div>
         </div>
     );

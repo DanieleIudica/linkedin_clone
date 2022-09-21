@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllExperiencesAction, setMeAction } from "../redux/action";
 import MainUser from "./MainUser";
+import { MyFooter } from "./MyFooter";
 import { Sidebar } from "./Sidebar";
 
 export const User = () => {
@@ -32,6 +33,7 @@ export const User = () => {
                     </Col>
                 </Row>
             )}
+            <MyFooter />
         </Container>
     );
 };

@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import FeedModal from "./FeedModal";
 
 export const MainFeed = () => {
     const me = useSelector((state) => state.user.me);
     const theme = useSelector((state) => state.user.theme);
     const styles = useSelector((state) => state.user.styles);
+    const [modalShow, setModalShow] = useState(false);
     return (
         <>
+            <FeedModal show={modalShow} onHide={() => setModalShow(false)} />
             <div className="feedDiv" style={theme ? styles.light : styles.dark}>
                 <Row>
                     <Col xs={1}>
-                        <img src={me.image} alt="" className="navImg " width="50" height="50" />
+                        <img src={me?.image} alt="" className="navImg " width="50" height="50" />
                     </Col>
                     <Col xs={11} className="ps-4">
                         <Form.Control
                             type="text"
+                            readOnly={true}
                             placeholder="Avvia un post"
                             className="rounded-pill mt-2 p-2 ps-3 newPostInput"
+                            onClick={() =>setModalShow(true) }
                         />
                     </Col>
                 </Row>

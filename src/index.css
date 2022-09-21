@@ -185,6 +185,7 @@ code {
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 20px;
+    background-color: #fff;
 }
 
 .profile_foto_container_feed {

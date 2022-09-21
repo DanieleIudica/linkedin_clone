@@ -283,13 +283,36 @@ export const postNews = (post) => {
             if(response.ok){
                 let data = await response.json();
                 console.log(data);
+                dispatch(getAllCommentsAction());
             }
-
         }
         catch (err) {
         }
     }
 }
+
+export const deleteNews = (postId) => {
+    console.log(postId)
+    return async (dispatch, getState) => {
+        try{
+            let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/"+postId,{
+                method: "DELETE",
+                headers: {
+                    Authorization:
+                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
+                },
+            })
+
+            if(response.ok){
+                dispatch(getAllCommentsAction());
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+}
+
 
 export const setLightAction = () => ({
     type: SET_LIGHT_THEME,

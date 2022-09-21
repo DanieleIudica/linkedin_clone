@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCommentsAction, setMeAction } from "../redux/action";
+import { deleteNews, getAllCommentsAction, setMeAction } from "../redux/action";
 import Moment from "react-moment";
 import FeedModal from "./FeedModal";
 
@@ -67,8 +67,13 @@ export const MainFeed = () => {
             {console.log(comments)}
             {comments &&
                 comments.map(
-                    (comment, i) =>
-                        i < 10 && (
+                    (comment, i) => {
+                        if(i<4)
+                        console.log(comment)
+                       return(
+                        comment.user?._id === me._id &&
+
+                        (
                             <>
                                 <div className="feedDiv" style={theme ? styles.light : styles.dark}>
                                     <Row>
@@ -89,7 +94,7 @@ export const MainFeed = () => {
                                             </Moment>
                                         </Col>
                                         <Col xs={3} className="text-end">
-                                            {comment._id === me._id && (
+                                            {comment.user?._id === me._id && (
                                                 <>
                                                     <Button
                                                         className="pencil_button"
@@ -102,6 +107,9 @@ export const MainFeed = () => {
                                                         className="pencil_button"
                                                         size="sm"
                                                         variant="outline-light"
+                                                        onClick={() => {
+                                                            dispatch(deleteNews(comment._id))
+                                                        }}
                                                     >
                                                         <i class="bi bi-trash3 text-dark fs-5 "></i>
                                                     </Button>
@@ -167,7 +175,8 @@ export const MainFeed = () => {
                                     </Row>
                                 </div>
                             </>
-                        )
+                        )) 
+                    } 
                 )}
         </>
     );

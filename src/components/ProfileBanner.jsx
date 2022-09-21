@@ -27,6 +27,7 @@ const ProfileBanner = () => {
                                         src={me.image}
                                         width="35%"
                                         alt=""
+                                        onClick={() => setModalShow(true)}
                                     />
                                 </div>
                                 <div className="d-flex section_icon">

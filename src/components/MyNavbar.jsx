@@ -200,7 +200,7 @@ export const MyNavbar = () => {
                                                             src="./modal_img/learning.png"
                                                             alt="learning"
                                                             width="50"
-                                                            className="modalImg"
+                                                            className="modalImg bg-white"
                                                         />
                                                         <p>Learning</p>
                                                     </div>
@@ -209,7 +209,7 @@ export const MyNavbar = () => {
                                                             src="./modal_img/insights.png"
                                                             alt="insights"
                                                             width="50"
-                                                            className="modalImg"
+                                                            className="modalImg bg-white"
                                                         />
                                                         <p>Insights</p>
                                                     </div>
@@ -218,7 +218,7 @@ export const MyNavbar = () => {
                                                             src="./modal_img/offerta.png"
                                                             alt="offerta"
                                                             width="50"
-                                                            className="modalImg"
+                                                            className="modalImg bg-white"
                                                         />
                                                         <p>Pubblica</p>
                                                     </div>
@@ -227,7 +227,7 @@ export const MyNavbar = () => {
                                                             src="./modal_img/pubblicizza.png"
                                                             alt="pubblicizza"
                                                             width="50"
-                                                            className="modalImg"
+                                                            className="modalImg bg-white"
                                                         />
                                                         <p>Pubblicizza</p>
                                                     </div>
@@ -237,7 +237,7 @@ export const MyNavbar = () => {
                                                             src="./modal_img/lead.png"
                                                             alt="lead"
                                                             width="50"
-                                                            className="modalImg"
+                                                            className="modalImg bg-white"
                                                         />
                                                         <p>Trova lead</p>
                                                     </div>
@@ -246,7 +246,7 @@ export const MyNavbar = () => {
                                                             src="./modal_img/gruppi.png"
                                                             alt="gruppi"
                                                             width="50"
-                                                            className="modalImg"
+                                                            className="modalImg bg-white"
                                                         />
                                                         <p>Gruppi</p>
                                                     </div>
@@ -255,7 +255,7 @@ export const MyNavbar = () => {
                                                             src="./modal_img/market.png"
                                                             alt="market"
                                                             width="50"
-                                                            className="modalImg"
+                                                            className="modalImg bg-white"
                                                         />
                                                         <p>Marketplace</p>
                                                     </div>
@@ -264,7 +264,7 @@ export const MyNavbar = () => {
                                                             src="./modal_img/salary.png"
                                                             alt="salary"
                                                             width="50"
-                                                            className="modalImg"
+                                                            className="modalImg bg-white"
                                                         />
                                                         <p>Salary</p>
                                                     </div>

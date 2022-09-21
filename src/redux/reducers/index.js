@@ -95,14 +95,6 @@ const mainReducer = (state = initialState, action) => {
                 },
             };
 
-        case PUT_EXPERIENCES:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    experiences: [...state.user.experiences],
-                },
-            };
 
         case SET_EXP_ID:
             return {

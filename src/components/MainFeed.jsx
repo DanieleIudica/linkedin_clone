@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCommentsAction, setMeAction } from "../redux/action";
 import Moment from "react-moment";
+import FeedModal from "./FeedModal";
 
 export const MainFeed = () => {
     const me = useSelector((state) => state.user.me);
@@ -10,6 +11,7 @@ export const MainFeed = () => {
     const styles = useSelector((state) => state.user.styles);
     const dispatch = useDispatch();
     const comments = useSelector((state) => state.comments.allComments);
+    const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
         dispatch(setMeAction());
@@ -18,6 +20,7 @@ export const MainFeed = () => {
     }, []);
     return (
         <>
+            <FeedModal show={modalShow} onHide={() => setModalShow(false)} />
             {me && (
                 <div className="feedDiv" style={theme ? styles.light : styles.dark}>
                     <Row>
@@ -29,6 +32,8 @@ export const MainFeed = () => {
                                 type="text"
                                 placeholder="Avvia un post"
                                 className="rounded-pill mt-2 p-2 ps-3 newPostInput"
+                                readOnly={true}
+                                onClick={() => setModalShow(true)}
                             />
                         </Col>
                     </Row>

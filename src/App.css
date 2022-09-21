@@ -114,3 +114,13 @@ div.Carousel__ItemSet-sc-hyhecw-3:nth-child(1) > div:nth-child(1) > div:nth-chil
 .feedFooter p {
     line-height: 10px;
 }
+
+.immaginePost {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+

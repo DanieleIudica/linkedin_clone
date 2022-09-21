@@ -64,7 +64,7 @@ export const LeftFeed = () => {
                         style={theme ? styles.light : styles.dark}
                     >
                         <p className="fw-bold text-secondary">
-                            <i class="bi bi-bookmark-fill me-2"></i> I miei elementi
+                            <i className="bi bi-bookmark-fill me-2"></i> I miei elementi
                         </p>
                     </div>
                 </>

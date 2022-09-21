@@ -8,15 +8,15 @@ const FeedFooter = () => {
             className="text-center feedFooter my-4"
             style={theme ? { color: "black" } : { color: "white" }}
         >
-            <p className="d-flex justify-content-center">
+            <span className="d-flex justify-content-center mb-1">
                 <a href="#!" className="me-3 nav-link">
                     Informazioni
                 </a>
                 <a href="#!" className="nav-link">
                     Accessibilità
                 </a>
-            </p>
-            <p className="d-flex justify-content-center">
+            </span>
+            <div className="d-flex justify-content-center mb-1">
                 <a href="#!" className="me-3 nav-link">
                     Centro Assistenza
                 </a>
@@ -35,16 +35,17 @@ const FeedFooter = () => {
                         Informativa sul copyright
                     </NavDropdown.Item>
                 </NavDropdown>
-            </p>
-            <p>
+            </div>
+            <div className="mb-1">
                 <a href="#!" className="nav-link">
                     Opzioni per gli annunci pubblicitari
                 </a>
-            </p>
-            <p className="d-flex justify-content-center">
+            </div>
+            <div className="d-flex justify-content-center mb-2">
                 <a href="#!" className="me-3 nav-link">
                     Pubblicità
                 </a>
+
                 <NavDropdown
                     id="nav-dropdown-dark-example"
                     title="Servizi alle aziende"
@@ -59,7 +60,7 @@ const FeedFooter = () => {
                         Informativa sul copyright
                     </NavDropdown.Item>
                 </NavDropdown>
-            </p>
+            </div>
             <p className="d-flex justify-content-center">
                 <a href="#!" className="me-3 nav-link">
                     Scarica l'app Linkedin

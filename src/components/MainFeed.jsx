@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCommentsAction, setMeAction } from "../redux/action";
+import Moment from "react-moment";
 
 export const MainFeed = () => {
     const me = useSelector((state) => state.user.me);
@@ -58,13 +59,13 @@ export const MainFeed = () => {
 
             <div className="divider mb-2"></div>
 
-            <div className="feedDiv" style={theme ? styles.light : styles.dark}>
-                {console.log(comments)}
-                {comments &&
-                    comments.map(
-                        (comment, i) =>
-                            i < 50 && (
-                                <>
+            {console.log(comments)}
+            {comments &&
+                comments.map(
+                    (comment, i) =>
+                        i < 10 && (
+                            <>
+                                <div className="feedDiv" style={theme ? styles.light : styles.dark}>
                                     <Row>
                                         <Col xs={1}>
                                             <img
@@ -76,11 +77,11 @@ export const MainFeed = () => {
                                             />
                                         </Col>
                                         <Col xs={10} className="ps-4">
-                                            <span className="fw-bold">nome</span>
+                                            <span className="fw-bold">{comment.username}</span>
                                             <br />
-                                            <span>Ruolo</span>
-                                            <br />
-                                            <span>Data</span>
+                                            <Moment format="DD-MM-YY HH:mm">
+                                                {comment.createdAt}
+                                            </Moment>
                                         </Col>
                                         <Col xs={1}>
                                             <Button
@@ -94,13 +95,7 @@ export const MainFeed = () => {
                                     </Row>
                                     <Row>
                                         <Col>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                elit. Nemo libero sapiente quam obcaecati eos qui
-                                                aperiam itaque quasi perspiciatis, cumque ullam
-                                                excepturi facilis repudiandae possimus suscipit
-                                                recusandae impedit inventore! Corrupti.
-                                            </p>
+                                            <p>{comment.text}</p>
                                         </Col>
                                     </Row>
                                     <Row>
@@ -147,10 +142,10 @@ export const MainFeed = () => {
                                             </div>
                                         </Col>
                                     </Row>
-                                </>
-                            )
-                    )}
-            </div>
+                                </div>
+                            </>
+                        )
+                )}
         </>
     );
 };

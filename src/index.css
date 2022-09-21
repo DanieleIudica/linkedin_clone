@@ -10,9 +10,6 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-#body {
-    background-color: rgb(243, 242, 239) !important;
-}
 /* main colors */
 .blue {
     color: rgb(10, 102, 194);

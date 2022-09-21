@@ -8,10 +8,14 @@ import { Feed } from "./components/Feed";
 
 function App() {
     const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+
     return (
         <BrowserRouter>
-            <div style={theme ? styles.light : { backgroundColor: "black" }} id="body">
+            <div
+                style={
+                    theme ? { backgroundColor: "rgb(243, 242, 239)" } : { backgroundColor: "black" }
+                }
+            >
                 <MyNavbar />
                 <Routes>
                     <Route path="/" element={<User />} />

@@ -106,14 +106,14 @@ export const MainFeed = () => {
                                                 <Button
                                                     className="pencil_button"
                                                     size="sm"
-                                                    variant="outline-light"
+                                                    variant={theme ? "outline-light" : "secondary"}
                                                 >
                                                     <i className="bi bi-pencil text-dark fs-5"></i>
                                                 </Button>
                                                 <Button
                                                     className="pencil_button"
                                                     size="sm"
-                                                    variant="outline-light"
+                                                    variant={theme ? "outline-light" : "secondary"}
                                                     onClick={() => {
                                                         dispatch(deleteNews(comment._id));
                                                     }}
@@ -125,7 +125,7 @@ export const MainFeed = () => {
                                         <Button
                                             className="pencil_button"
                                             size="sm"
-                                            variant="outline-light"
+                                            variant={theme ? "outline-light" : "secondary"}
                                         >
                                             <i className="bi bi-three-dots text-dark fs-5"></i>
                                         </Button>

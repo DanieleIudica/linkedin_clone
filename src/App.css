@@ -79,10 +79,11 @@ button.mx-2:nth-child(1) {
 .profile_foto_image {
     border-radius: 50%;
     border: 2px solid white;
+    cursor: pointer;
 }
 
-.feedFooter{
-  font-size: 0.7em !important;
+.feedFooter {
+    font-size: 0.7em !important;
 }
 
 .element {
@@ -105,7 +106,6 @@ div.Carousel__ItemSet-sc-hyhecw-3:nth-child(1) > div:nth-child(1) > div:nth-chil
     border-radius: 50% !important;
 }
 
-
 .feedFooter a:hover {
     text-decoration: underline;
     color: blue;
@@ -121,6 +121,3 @@ div.Carousel__ItemSet-sc-hyhecw-3:nth-child(1) > div:nth-child(1) > div:nth-chil
     border-radius: 50%;
     overflow: hidden;
 }
-
-
-

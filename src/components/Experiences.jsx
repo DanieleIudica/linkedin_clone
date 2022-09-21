@@ -23,13 +23,10 @@ export const Experiences = () => {
                         <Button
                             className="pencil_button fs-4"
                             size="sm"
-                            variant="outline-light"
+                            variant={theme ? "outline-light" : "light"}
                             onClick={() => setModalShow(true)}
                         >
                             <i className="bi bi-plus-lg text-dark"></i>
-                        </Button>
-                        <Button className="pencil_button fs-4" size="sm" variant="outline-light">
-                            <i className="bi bi-pencil text-dark"></i>
                         </Button>
                     </div>
                 </h5>
@@ -54,7 +51,7 @@ export const Experiences = () => {
                                             <Button
                                                 className="pencil_button ms-auto"
                                                 size="sm"
-                                                variant="outline-light"
+                                                variant={theme ? "outline-light" : "secondary"}
                                                 onClick={() => {
                                                     dispatch(setExpIdAction(experience._id));
                                                     setEditModalShow(true);
@@ -65,7 +62,7 @@ export const Experiences = () => {
                                             <Button
                                                 className="pencil_button ms-auto"
                                                 size="sm"
-                                                variant="outline-light"
+                                                variant={theme ? "outline-light" : "secondary"}
                                                 onClick={() => {
                                                     dispatch(
                                                         delteteExperienceAction(

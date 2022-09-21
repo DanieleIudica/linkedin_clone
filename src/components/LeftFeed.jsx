@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setMeAction } from "../redux/action";
+import { useNavigate } from "react-router-dom";
 
 export const LeftFeed = () => {
     const me = useSelector((state) => state.user.me);
     const theme = useSelector((state) => state.user.theme);
     const styles = useSelector((state) => state.user.styles);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(setMeAction());
@@ -33,6 +35,11 @@ export const LeftFeed = () => {
                                             src={me.image}
                                             width="35%"
                                             alt=""
+                                            onClick={() => {
+                                                setTimeout(() => {
+                                                    navigate("/");
+                                                }, 500);
+                                            }}
                                         />
                                     </div>
                                 </div>

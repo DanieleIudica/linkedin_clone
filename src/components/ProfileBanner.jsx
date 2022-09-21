@@ -51,7 +51,7 @@ const ProfileBanner = () => {
                                         <Button
                                             className="pencil_button"
                                             size="sm"
-                                            variant="outline-light"
+                                            variant={theme ? "outline-light" : "light"}
                                             onClick={() => setModalShow(true)}
                                         >
                                             <i className="bi bi-pencil text-dark fs-4"></i>
@@ -69,7 +69,6 @@ const ProfileBanner = () => {
                                             <h5>{me.title}</h5>
                                         </div>
                                     </Col>
-                                    <Col>{/* <h4>Sezione icona Epicode</h4> */}</Col>
                                 </Row>
 
                                 <div className="d-flex mb-3">

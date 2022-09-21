@@ -186,6 +186,7 @@ code {
     overflow: hidden;
     padding: 10px 20px;
     background-color: #fff;
+    margin-bottom: 10px;
 }
 
 .profile_foto_container_feed {
@@ -199,4 +200,33 @@ code {
 .feedProfileDiv b {
     text-decoration: underline;
     padding-bottom: 10px;
+}
+
+/* mainFeed */
+
+.newPostInput:hover {
+    background-color: rgba(192, 192, 192, 0.4);
+    cursor: pointer;
+}
+
+.bi-image {
+    color: rgb(10, 102, 194);
+}
+
+.bi-play-btn-fill {
+    color: rgb(95, 155, 65);
+}
+
+.bi-briefcase-fill {
+    color: rgb(168, 114, 232);
+}
+
+.bi-file-text-fill {
+    color: rgb(225, 103, 69);
+}
+
+.mainFeedHover:hover {
+    background-color: rgba(192, 192, 192, 0.4);
+    cursor: pointer;
+    border-radius: 5px;
 }

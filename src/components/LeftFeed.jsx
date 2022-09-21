@@ -70,7 +70,7 @@ export const LeftFeed = () => {
                 </>
             )}
             <div className="feedDiv">
-                <img src="./feedbar_img/recenti.png" alt="" />
+                <img src="./feedbar_img/recenti.png" alt="recenti" width="90%" />
             </div>
         </div>
     );

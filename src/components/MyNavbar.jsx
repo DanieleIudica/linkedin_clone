@@ -45,7 +45,7 @@ export const MyNavbar = () => {
                             id="navLink"
                             onClick={() => {
                                 setTimeout(() => {
-                                    navigate("/");
+                                    navigate("/feed");
                                 }, 500);
                             }}
                         >

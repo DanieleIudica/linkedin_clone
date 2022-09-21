@@ -10,6 +10,9 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+#body {
+    background-color: rgb(243, 242, 239) !important;
+}
 /* main colors */
 .blue {
     color: rgb(10, 102, 194);
@@ -116,6 +119,7 @@ code {
     overflow: hidden;
     padding: 10px 20px;
     margin-bottom: 20px;
+    background-color: #fff;
 }
 
 .sideDiv a {
@@ -137,4 +141,61 @@ code {
 .sideImg {
     border-radius: 50%;
     margin-right: 20px;
+}
+
+/* feed */
+
+.feedProfileDivHead {
+    border: 1px solid rgba(128, 128, 128, 0.355);
+    border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+}
+
+.feedProfileDiv {
+    border: 1px solid rgba(128, 128, 128, 0.355);
+    padding: 16px 16px 0px 16px;
+    font-size: 0.8em;
+    border-top: none;
+}
+
+.feedProfileDivBottom {
+    border: 1px solid rgba(128, 128, 128, 0.355);
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
+    border-top: none;
+    padding: 16px 16px 0px 16px;
+    margin-bottom: 10px;
+}
+
+.feedProfileDiv span {
+    color: rgb(10, 102, 194);
+    font-weight: bold;
+}
+
+.feedProfileDiv .p {
+    cursor: pointer;
+}
+
+.feedProfileDiv .p:hover {
+    background-color: rgba(182, 182, 182, 0.355);
+}
+
+.feedDiv {
+    border: 1px solid rgba(128, 128, 128, 0.355);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+
+.profile_foto_container_feed {
+    margin-top: -50%;
+}
+
+.bi-slash-square-fill {
+    color: rgb(231, 163, 62);
+}
+
+.feedProfileDiv b {
+    text-decoration: underline;
+    padding-bottom: 10px;
 }

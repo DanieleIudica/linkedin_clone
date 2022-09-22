@@ -42,8 +42,24 @@ code {
 
 .navImg {
     border-radius: 50%;
+    height: 33px;
     margin-top: 1px;
     cursor: pointer;
+}
+
+.navImgDd {
+    border-radius: 50%;
+    height: 66px;
+    width: 66px;
+    margin-top: 1px;
+    cursor: pointer;
+}
+
+.navImgFeed {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-top: 1px;
 }
 
 .myNav .bi-grid-3x3-gap-fill {

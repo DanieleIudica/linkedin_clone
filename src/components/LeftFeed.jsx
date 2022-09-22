@@ -34,6 +34,7 @@ export const LeftFeed = () => {
                                             className="profile_foto_image"
                                             src={me.image}
                                             width="35%"
+                                            height="65%"
                                             alt=""
                                             onClick={() => {
                                                 setTimeout(() => {

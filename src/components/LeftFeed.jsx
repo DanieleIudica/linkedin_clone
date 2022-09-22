@@ -23,18 +23,13 @@ export const LeftFeed = () => {
                     <div className="feedProfileDivHead" style={theme ? styles.light : styles.dark}>
                         <div className="banner">
                             <div className="bg_image">
-                                <div className="bg_image_container">
-                                    <img src="./hero.jpg" width="100%" height="100" alt="" />
-                                </div>
-                            </div>
-                            <Container className="myContainer">
-                                <div className="profile_foto d-flex">
-                                    <div className="profile_foto_container_feed text-center">
+                                <div className="bg_image_feed mb-5">
+                                    <img src="./hero.jpg" width="100%" height="70" alt="hero" />
+                                    <div>
                                         <img
-                                            className="profile_foto_image"
+                                            className="feed_foto_image"
                                             src={me.image}
-                                            width="35%"
-                                            height="65%"
+                                            width="80"
                                             alt=""
                                             onClick={() => {
                                                 setTimeout(() => {
@@ -44,11 +39,21 @@ export const LeftFeed = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="info_contatto_feed text-center">
-                                    <p className="fw-bold">
+                            </div>
+                            <Container className="myContainer">
+                                <div className="info_contatto_feed text-center mb-2">
+                                    <span
+                                        className="fw-bold userLink"
+                                        onClick={() => {
+                                            setTimeout(() => {
+                                                navigate("/");
+                                            }, 500);
+                                        }}
+                                    >
                                         {me.name} {me.surname}
-                                    </p>
-                                    <p>{me.title}</p>
+                                    </span>{" "}
+                                    <br />
+                                    <span className="small">{me.title}</span>
                                 </div>
                             </Container>
                         </div>

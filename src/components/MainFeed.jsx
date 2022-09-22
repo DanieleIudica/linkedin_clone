@@ -44,7 +44,7 @@ export const MainFeed = () => {
                     </Row>
                     <Row className="text-center mt-3 fw-bold text-secondary">
                         <Col xs={2}>
-                            <div className="mainFeedHover">
+                            <div className="mainFeedHover" onClick={() => setModalShow(true)}>
                                 <i className="bi bi-image fs-5"></i> Foto
                             </div>
                         </Col>
@@ -76,7 +76,8 @@ export const MainFeed = () => {
                         <div key={i} className="feedDiv" style={theme ? styles.light : styles.dark}>
                             <Row>
                                 <Col xs={1}>
-                                    {comment.user?._id === me._id ? (
+                                    {/* PENSO SI POSSA ELIMINARE */}
+                                    {/* {comment.user?._id === me._id ? (
                                         <img src={me.image} alt="" className="navImgFeed " />
                                     ) : (
                                         <img
@@ -86,7 +87,14 @@ export const MainFeed = () => {
                                             width="50"
                                             height="50"
                                         />
-                                    )}
+                                    )} */}
+                                    <img
+                                        src={comment.user.image}
+                                        alt=""
+                                        className="navImgFeed"
+                                        width="50"
+                                        height="50"
+                                    />
                                 </Col>
                                 <Col xs={8} className="ps-4">
                                     <span

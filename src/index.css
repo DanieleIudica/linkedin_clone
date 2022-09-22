@@ -206,8 +206,18 @@ code {
     margin-bottom: 10px;
 }
 
-.profile_foto_container_feed {
-    margin-top: -50%;
+.bg_image_feed {
+    position: relative;
+    height: 70px;
+}
+
+.feed_foto_image {
+    position: absolute;
+    top: 30px;
+    left: 37%;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
 }
 
 .bi-slash-square-fill {

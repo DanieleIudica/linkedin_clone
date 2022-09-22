@@ -15,7 +15,12 @@ const ProfileBanner = () => {
                 <div className="banner">
                     <div className="bg_image">
                         <div className="bg_image_container">
-                            <img src="./hero.jpg" width="100%" alt="" />
+                            {me.surname === "Iudica" ? (
+                                // ! DA VEDERE CON GAETANO
+                                <img src="./hero.jpg" width="100%" alt="hero" />
+                            ) : (
+                                <img src="http://placekitten.com/700/200" width="100%" alt="" />
+                            )}
                         </div>
                     </div>
                     <Container className="myContainer">
@@ -50,14 +55,16 @@ const ProfileBanner = () => {
                                         </svg>
                                     </div>
                                     <div className="icona_Profilo">
-                                        <Button
-                                            className="rounded-pill"
-                                            size="sm"
-                                            variant={theme ? "outline-light" : "light"}
-                                            onClick={() => setModalShow(true)}
-                                        >
-                                            <i className="bi bi-pencil text-dark fs-4"></i>
-                                        </Button>
+                                        {me.surname === "Iudica" && (
+                                            <Button
+                                                className="rounded-pill"
+                                                size="sm"
+                                                variant={theme ? "outline-light" : "light"}
+                                                onClick={() => setModalShow(true)}
+                                            >
+                                                <i className="bi bi-pencil text-dark fs-4"></i>
+                                            </Button>
+                                        )}
                                     </div>
                                 </div>
                             </div>

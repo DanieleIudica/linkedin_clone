@@ -248,6 +248,14 @@ code {
     border-radius: 5px;
 }
 
+.userLink {
+    cursor: pointer;
+}
+
+.userLink:hover {
+    color: rgb(0, 89, 255);
+    text-decoration: underline;
+}
 /* footerUser */
 .footerCol {
     font-size: 0.8em;

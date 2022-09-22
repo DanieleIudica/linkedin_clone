@@ -14,6 +14,12 @@ export const URL = "https://striveschool-api.herokuapp.com/api";
 export const TOKEN =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc";
 
+// TOKEN GAETANO:
+// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc"
+
+// TOKEN DANIELE:
+// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWI3OTZkNzlhNTAwMTUwOTAyZWQiLCJpYXQiOjE2NjM1NzI4NTcsImV4cCI6MTY2NDc4MjQ1N30.j_4RiP8WxrixXsZ5dbWKH8rj-w44Os-v5Mxa_rlKoHU"
+
 export const setMeAction = () => {
     return async (dispatch, getState) => {
         try {

@@ -24,11 +24,11 @@ export const LeftFeed = () => {
                         <div className="banner">
                             <div className="bg_image">
                                 <div className="bg_image_container">
-                                    <img src="http://placekitten.com/700/200" width="100%" alt="" />
+                                    <img src="./hero.jpg" width="100%" height="100" alt="" />
                                 </div>
                             </div>
                             <Container className="myContainer">
-                                <div className="profile_foto d-flex mb-1">
+                                <div className="profile_foto d-flex">
                                     <div className="profile_foto_container_feed text-center">
                                         <img
                                             className="profile_foto_image"

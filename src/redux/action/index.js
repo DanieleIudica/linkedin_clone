@@ -9,6 +9,7 @@ export const GET_EXPERIENCE = "GET_EXPERIENCE";
 export const POST_NEW_EXPERIENCES = "POST_NEW_EXPERIENCES";
 export const PUT_EXPERIENCES = "PUT_EXPERIENCES";
 export const SET_EXP_ID = "SET_EXP_ID";
+export const SET_COMMENT_BY_ID = "SET_COMMENT_BY_ID";
 
 export const setMeAction = () => {
     return async (dispatch, getState) => {
@@ -312,6 +313,53 @@ export const deleteNews = (postId) => {
         }
     }
 }
+
+export const getNewsById = (postId) => {
+    return async (dispatch, getState) => {
+        try{
+            let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/"+postId,{
+                method: "GET",
+                headers: {
+                    Authorization:
+                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
+                },
+            })
+
+            if(response.ok){
+                let data = await response.json()
+                console.log(data);
+                dispatch({
+                    type: SET_COMMENT_BY_ID,
+                    payload: data,
+                })
+            }
+        }
+        catch (err) {}
+    }
+}
+export const PutNews = (postId,post) => {
+    return async (dispatch, getState) => {
+        try{
+            let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/"+postId,{
+                method: "PUT",
+                body: JSON.stringify(post),
+                headers: {
+                    "content-type": "application/json",
+                    Authorization:
+                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
+                },
+            })
+
+            if(response.ok){
+
+               dispatch(getAllCommentsAction())
+            }
+        }
+        catch (err) {}
+    }
+}
+
+
 
 
 export const setLightAction = () => ({

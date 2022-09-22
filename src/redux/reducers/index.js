@@ -10,6 +10,7 @@ import {
     SET_EXP_ID,
     GET_EXPERIENCE,
     GET_ALL_COMMENTS,
+    SET_COMMENT_BY_ID,
 } from "../action";
 
 const initialState = {
@@ -32,7 +33,10 @@ const initialState = {
     },
 
     users: { allUsers: [] },
-    comments: { allComments: [] },
+    comments: { 
+        allComments: [],
+        commentsById: null 
+    },
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -121,6 +125,15 @@ const mainReducer = (state = initialState, action) => {
                     singleExp: action.payload,
                 },
             };
+
+        case SET_COMMENT_BY_ID:
+            return{
+                ...state,
+                comments:{
+                    ...state.comments,
+                    commentsById: action.payload,
+                }
+            }
         default:
             return state;
     }

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteNews, getAllCommentsAction, setMeAction } from "../redux/action";
+import { deleteNews, getAllCommentsAction, getNewsById, setMeAction } from "../redux/action";
 import Moment from "react-moment";
 import FeedModal from "./FeedModal";
+import FeedEditModal from "./FeedEditModal";
 
 export const MainFeed = () => {
     const me = useSelector((state) => state.user.me);
@@ -12,6 +13,7 @@ export const MainFeed = () => {
     const dispatch = useDispatch();
     const comments = useSelector((state) => state.comments.allComments);
     const [modalShow, setModalShow] = useState(false);
+    const [editModalShow, setEditModalShow] = useState(false);
 
     useEffect(() => {
         dispatch(setMeAction());
@@ -20,6 +22,7 @@ export const MainFeed = () => {
     }, []);
     return (
         <>
+            <FeedEditModal show={editModalShow} onHide={() => setEditModalShow(false)} />
             <FeedModal show={modalShow} onHide={() => setModalShow(false)} />
             {me && (
                 <div className="feedDiv" style={theme ? styles.light : styles.dark}>
@@ -107,6 +110,10 @@ export const MainFeed = () => {
                                                     className="rounded-pill"
                                                     size="sm"
                                                     variant={theme ? "outline-light" : "secondary"}
+                                                    onClick={()=>{
+                                                        dispatch(getNewsById(comment._id))
+                                                        setEditModalShow(true)
+                                                    }}
                                                 >
                                                     <i className="bi bi-pencil text-dark fs-5"></i>
                                                 </Button>

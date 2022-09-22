@@ -70,9 +70,8 @@ export const MainFeed = () => {
             {console.log(comments)}
             {comments &&
                 comments.map((comment, i) => {
-                    if (i < 4) console.log(comment);
                     return (
-                        comment.user?._id === me._id && (
+                        (
                             <div
                                 key={i}
                                 className="feedDiv"
@@ -145,11 +144,11 @@ export const MainFeed = () => {
                                 </Row>
                                 <Row>
                                     <Col className="text-center">
-                                        <img
-                                            src="http://placekitten.com/600/300"
+                                       { comment.image && <img
+                                            src={comment.image}
                                             alt=""
                                             width="100%"
-                                        />
+                                        />}
                                     </Col>
                                 </Row>
                                 <Row className="text-secondary mt-1">

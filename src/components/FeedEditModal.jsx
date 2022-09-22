@@ -6,6 +6,8 @@ import { getNewsById, PutNews } from "../redux/action";
 
 const FeedEditModal = (props) => {
 
+    const [imgPrew, setImgPrew] = useState("")
+    const [file, setFile] = useState(null);
     const me = useSelector((state)=> state.user.me);
     const post = useSelector((state) => state.comments.commentsById);
     const dispatch = useDispatch();
@@ -14,7 +16,7 @@ const FeedEditModal = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(text)
-        dispatch(PutNews(post._id,{text: text}));
+        dispatch(PutNews(post._id,{text: text}, file));
         props.onHide()
     }
 
@@ -24,6 +26,7 @@ const FeedEditModal = (props) => {
         console.log(post)
         if(post !== null){
             setText(post.text)
+            setImgPrew(post.image)
         }
     },[post])
 
@@ -79,6 +82,7 @@ const FeedEditModal = (props) => {
                   onChange={(e)=> setText(e.target.value)}
                 />
               </FloatingLabel>
+              {imgPrew && <img src={imgPrew} width="100%" alt="" />}
               <Button variant="outline-light" style={{ color: "blue" }}>
                 <span class="artdeco-button__text">Aggiungi hashtag</span>
               </Button>
@@ -94,6 +98,20 @@ const FeedEditModal = (props) => {
                       width="24"
                       height="24"
                       focusable="false"
+                      onClick={() => {
+                      
+                        var input = document.createElement("input");
+                       input.type = "file";
+                       input.click();
+                        input.addEventListener('change', () => {
+ 
+                        console.log(input.files[0])
+                         setFile(input.files[0]);
+                          let path = URL.createObjectURL(input.files[0]);
+                         console.log(path); 
+                         setImgPrew(path)
+                       }) 
+                     }}
                     >
                       <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
                     </svg>

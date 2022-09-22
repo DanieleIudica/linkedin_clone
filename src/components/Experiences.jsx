@@ -36,7 +36,7 @@ export const Experiences = () => {
                             <div className="d-flex mt-3" key={i}>
                                 <Col xs={2}>
                                     <img
-                                        src="http://placekitten.com/200/200"
+                                        src={experience.image}
                                         width="50"
                                         height="50"
                                         alt=""

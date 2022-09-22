@@ -13,6 +13,7 @@ const FormEditExperience = (props) => {
     description: "",
     area: "",
   });
+  const [file, setFile] = useState(null);
 
   const [role, setRole] = useState(currentExp.role);
   const [company, setCompany] = useState(currentExp.company);
@@ -24,7 +25,7 @@ const FormEditExperience = (props) => {
   const me = useSelector((state) => state.user.me);
   const singleExp = useSelector((state) => state.user.singleExp);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("submit");
     let experience = {
@@ -36,7 +37,33 @@ const FormEditExperience = (props) => {
       description: description,
     };
     console.log(experience);
-    dispatch(putExperienceAction(me._id, expId, experience));
+    if(file){
+      let formData = new FormData();
+      formData.append("experience", file);
+      try {
+        let response = await fetch(
+          "https://striveschool-api.herokuapp.com/api/profile/" +
+            me._id +
+            "/experiences/"+expId+"/picture",
+          {
+            method: "POST",
+            body: formData,
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
+            },
+          }
+        );
+  
+        if (response.ok) {
+          dispatch(putExperienceAction(me._id, expId, experience));
+        }
+      } catch (e) {}
+    }
+    else{
+       dispatch(putExperienceAction(me._id, expId, experience));
+    }
+   
   };
 
   const func = async () => {
@@ -159,6 +186,14 @@ const FormEditExperience = (props) => {
               value={description}
               as="textarea"
               placeholder="Description..."
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicLocal">
+            <Form.Label>Default file input example</Form.Label>
+            <Form.Control
+              type="file"
+              name="file"
+              onChange={(e) => setFile(e.target.files[0])}
             />
           </Form.Group>
           <div className="text-end">

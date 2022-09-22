@@ -10,486 +10,407 @@ export const POST_NEW_EXPERIENCES = "POST_NEW_EXPERIENCES";
 export const PUT_EXPERIENCES = "PUT_EXPERIENCES";
 export const SET_EXP_ID = "SET_EXP_ID";
 export const SET_COMMENT_BY_ID = "SET_COMMENT_BY_ID";
+export const URL = "https://striveschool-api.herokuapp.com/api";
+export const TOKEN =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc";
 
 export const setMeAction = () => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/me",
-        {
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
-
-      if (response.ok) {
-        let data = await response.json();
-        dispatch({
-          type: SET_ME,
-          payload: data,
-        });
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-};
-
-export const getUserByIdAction = (userId) =>{
     return async (dispatch, getState) => {
         try {
-          const response = await fetch(
-            "https://striveschool-api.herokuapp.com/api/profile/"+userId,
-            {
-              method: "GET",
-              headers: {
-                Authorization:
-                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-              },
-            }
-          );
-    
-          if (response.ok) {
-            let data = await response.json();
-            dispatch({
-              type: SET_ME,
-              payload: data,
+            const response = await fetch(URL + "/profile/me", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
             });
-            console.log(data);
-          }
+
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: SET_ME,
+                    payload: data,
+                });
+                console.log(data);
+            }
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
-}
+    };
+};
+
+export const getUserByIdAction = (userId) => {
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(URL + "/profile/" + userId, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
+
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: SET_ME,
+                    payload: data,
+                });
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+};
 
 export const updateMeAction = (user) => {
-  return async (dispatch, getState) => {
-    try {
-      console.log(user);
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
-          method: "PUT",
-          body: JSON.stringify(user),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            console.log(user);
+            const response = await fetch(URL + "/profile/", {
+                method: "PUT",
+                body: JSON.stringify(user),
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        dispatch({
-          type: UPDATE_ME,
-          payload: data,
-        });
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: UPDATE_ME,
+                    payload: data,
+                });
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const getAllUsersAction = () => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(URL + "/profile/", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        dispatch({
-          type: GET_ALL_USERS,
-          payload: data,
-        });
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: GET_ALL_USERS,
+                    payload: data,
+                });
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const getAllCommentsAction = () => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
-        {
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(URL + "/posts/", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        data = data.slice(-20, data.length);
-       data = data.reverse();
-       console.log(data);
-        dispatch({
-          type: GET_ALL_COMMENTS,
-          payload: data,
-        });
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                data = data.slice(-20, data.length);
+                data = data.reverse();
+                console.log(data);
+                dispatch({
+                    type: GET_ALL_COMMENTS,
+                    payload: data,
+                });
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const getAllExperiencesAction = (userId) => {
-  return async (dispatch, getState) => {
-    try {
-      console.log(userId);
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" +
-          userId +
-          "/experiences",
-        {
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            console.log(userId);
+            const response = await fetch(URL + "/profile/" + userId + "/experiences", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        dispatch({
-          type: GET_ALL_EXPERIENCES,
-          payload: data,
-        });
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                dispatch({
+                    type: GET_ALL_EXPERIENCES,
+                    payload: data,
+                });
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const getExperienceAction = (userId, expId) => {
-  return async (dispatch, getState) => {
-    try {
-      console.log(userId);
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" +
-          userId +
-          "/experiences/" +
-          expId,
-        {
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            console.log(userId);
+            const response = await fetch(URL + "/profile/" + userId + "/experiences/" + expId, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        dispatch({
-          type: GET_EXPERIENCE,
-          payload: data,
-        });
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                dispatch({
+                    type: GET_EXPERIENCE,
+                    payload: data,
+                });
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const postNewExperiencesAction = (userId, experience, file) => {
-  return async (dispatch, getState) => {
-    try {
-      console.log(userId);
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" +
-          userId +
-          "/experiences",
-        {
-          method: "POST",
-          body: JSON.stringify(experience),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
-
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        if (file) {
-          let formData = new FormData();
-          formData.append("experience", file);
-          try {
-            let response2 = await fetch(
-              "https://striveschool-api.herokuapp.com/api/profile/" +
-                userId +
-                "/experiences/" +
-                data._id +
-                "/picture",
-              {
+    return async (dispatch, getState) => {
+        try {
+            console.log(userId);
+            const response = await fetch(URL + "/profile/" + userId + "/experiences", {
                 method: "POST",
-                body: formData,
+                body: JSON.stringify(experience),
                 headers: {
-                  Authorization:
-                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
                 },
-              }
-            );
+            });
 
-            if (response2.ok) {
-              dispatch(getAllExperiencesAction(userId));
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                if (file) {
+                    let formData = new FormData();
+                    formData.append("experience", file);
+                    try {
+                        let response2 = await fetch(
+                            URL + "/profile/" + userId + "/experiences/" + data._id + "/picture",
+                            {
+                                method: "POST",
+                                body: formData,
+                                headers: {
+                                    Authorization: `Bearer ${TOKEN}`,
+                                },
+                            }
+                        );
+
+                        if (response2.ok) {
+                            dispatch(getAllExperiencesAction(userId));
+                        }
+                    } catch (e) {}
+                } else {
+                    dispatch(getAllExperiencesAction(userId));
+                }
             }
-          } catch (e) {}
-        } else {
-          dispatch(getAllExperiencesAction(userId));
+        } catch (err) {
+            console.log(err);
         }
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    };
 };
 
 export const delteteExperienceAction = (userId, expId) => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" +
-          userId +
-          "/experiences/" +
-          expId,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(URL + "/profile/" + userId + "/experiences/" + expId, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        console.log("eliminata");
-        dispatch(getAllExperiencesAction(userId));
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                console.log("eliminata");
+                dispatch(getAllExperiencesAction(userId));
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const putExperienceAction = (userId, expId, experience) => {
-  return async (dispatch, getState) => {
-    try {
-      console.log(userId);
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" +
-          userId +
-          "/experiences/" +
-          expId,
-        {
-          method: "PUT",
-          body: JSON.stringify(experience),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            console.log(userId);
+            const response = await fetch(URL + "/profile/" + userId + "/experiences/" + expId, {
+                method: "PUT",
+                body: JSON.stringify(experience),
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        dispatch(getAllExperiencesAction(userId));
-        /*  dispatch({
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                dispatch(getAllExperiencesAction(userId));
+                /*  dispatch({
                     type: PUT_EXPERIENCES,
                     // payload: data,
                 }); */
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const postNews = (post, file) => {
-  return async (dispatch, getState) => {
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
-        {
-          method: "POST",
-          body: JSON.stringify(post),
-          headers: {
-            "content-type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
-
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        if (file) {
-          let formData = new FormData();
-          formData.append("post", file);
-          try {
-            let response2 = await fetch(
-              "https://striveschool-api.herokuapp.com/api/posts/" + data._id,
-              {
+    return async (dispatch, getState) => {
+        try {
+            let response = await fetch(URL + "/posts/", {
                 method: "POST",
-                body: formData,
+                body: JSON.stringify(post),
                 headers: {
-                  Authorization:
-                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
+                    "content-type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
                 },
-              }
-            );
+            });
 
-            if (response2.ok) {
-              dispatch(getAllCommentsAction());
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                if (file) {
+                    let formData = new FormData();
+                    formData.append("post", file);
+                    try {
+                        let response2 = await fetch(URL + "/posts/" + data._id, {
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                Authorization: `Bearer ${TOKEN}`,
+                            },
+                        });
+
+                        if (response2.ok) {
+                            dispatch(getAllCommentsAction());
+                        }
+                    } catch (e) {}
+                } else {
+                    dispatch(getAllCommentsAction());
+                }
             }
-          } catch (e) {}
-        } else {
-          dispatch(getAllCommentsAction());
-        }
-      }
-    } catch (err) {}
-  };
+        } catch (err) {}
+    };
 };
 
 export const deleteNews = (postId) => {
-  console.log(postId);
-  return async (dispatch, getState) => {
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + postId,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    console.log(postId);
+    return async (dispatch, getState) => {
+        try {
+            let response = await fetch(URL + "/posts/" + postId, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        dispatch(getAllCommentsAction());
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                dispatch(getAllCommentsAction());
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const getNewsById = (postId) => {
-  return async (dispatch, getState) => {
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + postId,
-        {
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            let response = await fetch(URL + "/posts/" + postId, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        dispatch({
-          type: SET_COMMENT_BY_ID,
-          payload: data,
-        });
-      }
-    } catch (err) {}
-  };
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                dispatch({
+                    type: SET_COMMENT_BY_ID,
+                    payload: data,
+                });
+            }
+        } catch (err) {}
+    };
 };
-export const PutNews = (postId, post,file) => {
-  return async (dispatch, getState) => {
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + postId,
-        {
-          method: "PUT",
-          body: JSON.stringify(post),
-          headers: {
-            "content-type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-          },
-        }
-      );
+export const PutNews = (postId, post, file) => {
+    return async (dispatch, getState) => {
+        try {
+            let response = await fetch(URL + "/posts/" + postId, {
+                method: "PUT",
+                body: JSON.stringify(post),
+                headers: {
+                    "content-type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        if (file) {
-            let formData = new FormData();
-            formData.append("post", file);
-            try {
-              let response2 = await fetch(
-                "https://striveschool-api.herokuapp.com/api/posts/" + postId,
-                {
-                  method: "POST",
-                  body: formData,
-                  headers: {
-                    Authorization:
-                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc",
-                  },
+            if (response.ok) {
+                if (file) {
+                    let formData = new FormData();
+                    formData.append("post", file);
+                    try {
+                        let response2 = await fetch(URL + "/posts/" + postId, {
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                Authorization: `Bearer ${TOKEN}`,
+                            },
+                        });
+
+                        if (response2.ok) {
+                            dispatch(getAllCommentsAction());
+                        }
+                    } catch (e) {}
+                } else {
+                    dispatch(getAllCommentsAction());
                 }
-              );
-  
-              if (response2.ok) {
-                dispatch(getAllCommentsAction());
-              }
-            } catch (e) {}
-          } else {
-            dispatch(getAllCommentsAction());
-          }
-      }
-    } catch (err) {}
-  };
+            }
+        } catch (err) {}
+    };
 };
 
 export const setLightAction = () => ({
-  type: SET_LIGHT_THEME,
-  payload: true,
+    type: SET_LIGHT_THEME,
+    payload: true,
 });
 
 export const setDarkAction = () => ({
-  type: SET_DARK_THEME,
-  payload: false,
+    type: SET_DARK_THEME,
+    payload: false,
 });
 
 export const setExpIdAction = (expId) => ({
-  type: SET_EXP_ID,
-  payload: expId,
+    type: SET_EXP_ID,
+    payload: expId,
 });

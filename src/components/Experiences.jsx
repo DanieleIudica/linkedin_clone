@@ -72,7 +72,7 @@ export const Experiences = () => {
                                                     );
                                                 }}
                                             >
-                                                <i class="bi bi-trash3 text-dark fs-5 "></i>
+                                                <i className="bi bi-trash3 text-dark fs-5 "></i>
                                             </Button>
                                         </div>
                                     </span>

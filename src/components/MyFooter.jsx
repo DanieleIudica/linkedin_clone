@@ -83,24 +83,24 @@ export const MyFooter = () => {
                     </Col>
 
                     <Col className="mb-3 fw-bold footerCol">
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2">
-                                <a href="#!" class="nav-link p-0 text-muted">
+                        <ul className="nav flex-column">
+                            <li className="nav-item mb-2">
+                                <a href="#!" className="nav-link p-0 text-muted">
                                     Talent Solutions
                                 </a>
                             </li>
-                            <li class="nav-item mb-2">
-                                <a href="#!" class="nav-link p-0 text-muted">
+                            <li className="nav-item mb-2">
+                                <a href="#!" className="nav-link p-0 text-muted">
                                     Soluzioni di marketing
                                 </a>
                             </li>
-                            <li class="nav-item mb-2">
-                                <a href="#!" class="nav-link p-0 text-muted">
+                            <li className="nav-item mb-2">
+                                <a href="#!" className="nav-link p-0 text-muted">
                                     Pubblicità
                                 </a>
                             </li>
-                            <li class="nav-item mb-2">
-                                <a href="#!" class="nav-link p-0 text-muted">
+                            <li className="nav-item mb-2">
+                                <a href="#!" className="nav-link p-0 text-muted">
                                     Piccole imprese
                                 </a>
                             </li>
@@ -128,8 +128,8 @@ export const MyFooter = () => {
                     </Col>
                     <Col>
                         <span className="ps-2 small text-secondary">Seleziona lingua</span>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Italiano (Italiano)</option>
+                        <select className="form-select" aria-label="Default select example">
+                            <option defaultValue>Italiano (Italiano)</option>
                             <option value="1">English (Inglese)</option>
                             <option value="2">Spanish (spagnolo)</option>
                             <option value="3">Deutsch (Tedesco)</option>
@@ -137,26 +137,26 @@ export const MyFooter = () => {
                     </Col>
                 </Row>
 
-                <div class="d-flex flex-column flex-sm-row justify-content-between py-4  border-top">
+                <div className="d-flex flex-column flex-sm-row justify-content-between py-4  border-top">
                     <p>LinkedIn Corporation © 2022</p>
-                    <ul class="list-unstyled d-flex">
-                        <li class="ms-3">
-                            <a class="link-dark" href="#!">
-                                <svg class="bi" width="24" height="24">
+                    <ul className="list-unstyled d-flex">
+                        <li className="ms-3">
+                            <a className="link-dark" href="#!">
+                                <svg className="bi" width="24" height="24">
                                     <use href="#twitter" />
                                 </svg>
                             </a>
                         </li>
-                        <li class="ms-3">
-                            <a class="link-dark" href="#!">
-                                <svg class="bi" width="24" height="24">
+                        <li className="ms-3">
+                            <a className="link-dark" href="#!">
+                                <svg className="bi" width="24" height="24">
                                     <use href="#instagram" />
                                 </svg>
                             </a>
                         </li>
-                        <li class="ms-3">
-                            <a class="link-dark" href="#!">
-                                <svg class="bi" width="24" height="24">
+                        <li className="ms-3">
+                            <a className="link-dark" href="#!">
+                                <svg className="bi" width="24" height="24">
                                     <use href="#facebook" />
                                 </svg>
                             </a>

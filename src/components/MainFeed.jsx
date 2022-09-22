@@ -5,8 +5,10 @@ import { deleteNews, getAllCommentsAction, getNewsById, setMeAction } from "../r
 import Moment from "react-moment";
 import FeedModal from "./FeedModal";
 import FeedEditModal from "./FeedEditModal";
+import { useNavigate } from "react-router-dom";
 
 export const MainFeed = () => {
+    const navigate = useNavigate()
     const me = useSelector((state) => state.user.me);
     const theme = useSelector((state) => state.user.theme);
     const styles = useSelector((state) => state.user.styles);
@@ -87,7 +89,9 @@ export const MainFeed = () => {
                                     )}
                                 </Col>
                                 <Col xs={8} className="ps-4">
-                                    <span className="fw-bold">{comment.username}</span>
+                                    <span className="fw-bold " style={{cursor: "pointer"}} onClick={() =>{
+                                        navigate("../others/"+ comment.user._id)
+                                    }}>{comment.username} </span>
                                     <br />
                                     <Moment format="DD-MM-YY HH:mm">{comment.createdAt}</Moment>
                                 </Col>

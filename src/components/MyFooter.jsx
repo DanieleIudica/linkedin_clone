@@ -125,28 +125,9 @@ export const MyFooter = () => {
                                 <span className="small">Vai alle impostazioni</span>
                             </div>
                         </div>
-
-                        {/* <ul class="nav">
-                            <li class="nav-item mb-2 d-flex">
-                                <a href="#!" className="nav-link p-0 text-muted">
-                                    <i className="bi bi-question-circle-fill fs-4 me-2"></i>{" "}
-                                    <span>Domande?</span>
-                                    <br />
-                                    <span className="small">
-                                        Visita il nostro Centro assistenza.
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item mb-2">
-                                <a href="#!" className="d-flex nav-link p-0 text-muted">
-                                    Modifica il profilo pubblico e l'URL{" "}
-                                    <i className="bi bi-question-circle-fill ms-auto"></i>
-                                </a>
-                            </li>
-                        </ul> */}
                     </Col>
                     <Col>
-                        <span className="ps-2 small">Seleziona lingua</span>
+                        <span className="ps-2 small text-secondary">Seleziona lingua</span>
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Italiano (Italiano)</option>
                             <option value="1">English (Inglese)</option>

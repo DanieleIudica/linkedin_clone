@@ -231,3 +231,24 @@ code {
     cursor: pointer;
     border-radius: 5px;
 }
+
+/* footerUser */
+.footerCol {
+    font-size: 0.8em;
+}
+
+.footerCol a:hover {
+    color: rgb(0, 89, 255) !important;
+    text-decoration: underline;
+}
+
+#nav-dropdown-dark-example {
+    padding: 0;
+    color: rgb(111, 111, 111);
+}
+
+.footerHover:hover {
+    color: rgb(0, 89, 255);
+    text-decoration: underline;
+    cursor: pointer;
+}

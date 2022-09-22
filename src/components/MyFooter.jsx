@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, NavDropdown, Row } from "react-bootstrap";
 
 export const MyFooter = () => {
     return (
@@ -11,7 +11,7 @@ export const MyFooter = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <div className="col-6 col-md-2 mb-3 fw-bold">
+                    <Col className="mb-3 fw-bold footerCol">
                         <ul className="nav flex-column">
                             <li className="nav-item mb-2">
                                 <a href="#!" className="nav-link p-0 text-muted">
@@ -23,104 +23,137 @@ export const MyFooter = () => {
                                     Linee guida della community
                                 </a>
                             </li>
+
+                            <NavDropdown
+                                id="nav-dropdown-dark-example"
+                                title="Privacy e condizioni"
+                                menuVariant="light"
+                                className="mb-2"
+                            >
+                                <NavDropdown.Item href="#action/3.1">
+                                    Informativa sulla privacy
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">
+                                    Contratto di licenza
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">
+                                    Informativa sui Cookie
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">
+                                    Informativa sul copyright
+                                </NavDropdown.Item>
+                            </NavDropdown>
+
                             <li className="nav-item mb-2">
                                 <a href="#!" className="nav-link p-0 text-muted">
-                                    Pricing
+                                    Sales Solutions
                                 </a>
                             </li>
                             <li className="nav-item mb-2">
                                 <a href="#!" className="nav-link p-0 text-muted">
-                                    FAQs
-                                </a>
-                            </li>
-                            <li className="nav-item mb-2">
-                                <a href="#!" className="nav-link p-0 text-muted">
-                                    About
+                                    Centro sicurezza
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </Col>
 
-                    <div className="col-6 col-md-2 mb-3 fw-bold">
+                    <Col className="mb-3 fw-bold footerCol">
                         <ul className="nav flex-column">
                             <li className="nav-item mb-2">
                                 <a href="#!" className="nav-link p-0 text-muted">
-                                    Home
+                                    Accessibilità
                                 </a>
                             </li>
                             <li className="nav-item mb-2">
                                 <a href="#!" className="nav-link p-0 text-muted">
-                                    Features
+                                    Carriera
                                 </a>
                             </li>
                             <li className="nav-item mb-2">
                                 <a href="#!" className="nav-link p-0 text-muted">
-                                    Pricing
+                                    Opzioni di annuncio
                                 </a>
                             </li>
                             <li className="nav-item mb-2">
                                 <a href="#!" className="nav-link p-0 text-muted">
-                                    FAQs
-                                </a>
-                            </li>
-                            <li className="nav-item mb-2">
-                                <a href="#!!" className="nav-link p-0 text-muted">
-                                    About
+                                    Mobile
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </Col>
 
-                    <div class="col-6 col-md-2 mb-3 fw-bold">
+                    <Col className="mb-3 fw-bold footerCol">
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">
                                 <a href="#!" class="nav-link p-0 text-muted">
-                                    Home
+                                    Talent Solutions
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
                                 <a href="#!" class="nav-link p-0 text-muted">
-                                    Features
+                                    Soluzioni di marketing
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
                                 <a href="#!" class="nav-link p-0 text-muted">
-                                    Pricing
+                                    Pubblicità
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
                                 <a href="#!" class="nav-link p-0 text-muted">
-                                    FAQs
-                                </a>
-                            </li>
-                            <li class="nav-item mb-2">
-                                <a href="#!" class="nav-link p-0 text-muted">
-                                    About
+                                    Piccole imprese
                                 </a>
                             </li>
                         </ul>
-                    </div>
-
-                    <div class="col-md-5 offset-md-1 mb-3">
-                        <form>
-                            <h5>Subscribe to our newsletter</h5>
-                            <p>Monthly digest of what's new and exciting from us.</p>
-                            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                                <label for="newsletter1" class="visually-hidden">
-                                    Email address
-                                </label>
-                                <input
-                                    id="newsletter1"
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Email address"
-                                />
-                                <button class="btn btn-primary" type="button">
-                                    Subscribe
-                                </button>
+                    </Col>
+                    <Col className="footerCol text-secondary">
+                        <div className="d-flex mb-2">
+                            <i className="bi bi-question-circle-fill fs-4 me-2"></i>
+                            <div>
+                                <span className="footerHover">Domande?</span>
+                                <br />
+                                <span className="small">Visita il nostro Centro assistenza.</span>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div className="d-flex">
+                            <i className="bi bi-gear-fill fs-4 me-2"></i>
+                            <div>
+                                <span className="footerHover">
+                                    Gestisci il tuo account e la tua privacy
+                                </span>
+                                <br />
+                                <span className="small">Vai alle impostazioni</span>
+                            </div>
+                        </div>
+
+                        {/* <ul class="nav">
+                            <li class="nav-item mb-2 d-flex">
+                                <a href="#!" className="nav-link p-0 text-muted">
+                                    <i className="bi bi-question-circle-fill fs-4 me-2"></i>{" "}
+                                    <span>Domande?</span>
+                                    <br />
+                                    <span className="small">
+                                        Visita il nostro Centro assistenza.
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="#!" className="d-flex nav-link p-0 text-muted">
+                                    Modifica il profilo pubblico e l'URL{" "}
+                                    <i className="bi bi-question-circle-fill ms-auto"></i>
+                                </a>
+                            </li>
+                        </ul> */}
+                    </Col>
+                    <Col>
+                        <span className="ps-2 small">Seleziona lingua</span>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Italiano (Italiano)</option>
+                            <option value="1">English (Inglese)</option>
+                            <option value="2">Spanish (spagnolo)</option>
+                            <option value="3">Deutsch (Tedesco)</option>
+                        </select>
+                    </Col>
                 </Row>
 
                 <div class="d-flex flex-column flex-sm-row justify-content-between py-4  border-top">

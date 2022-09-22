@@ -17,7 +17,7 @@ export const Sidebar = () => {
 
     return (
         <>
-            <div className="sideDiv" style={theme ? styles.light : styles.dark}>
+            <div className="sideDiv mb-2" style={theme ? styles.light : styles.dark}>
                 <a href="#!" className="d-flex">
                     Modifica il profilo pubblico e l'URL{" "}
                     <i className="bi bi-question-circle-fill ms-auto"></i>

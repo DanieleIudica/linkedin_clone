@@ -50,7 +50,7 @@ const ProfileBanner = () => {
                                     </div>
                                     <div className="icona_Profilo">
                                         <Button
-                                            className="pencil_button"
+                                            className="rounded-pill"
                                             size="sm"
                                             variant={theme ? "outline-light" : "light"}
                                             onClick={() => setModalShow(true)}

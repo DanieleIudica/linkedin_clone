@@ -104,14 +104,14 @@ export const MainFeed = () => {
                                         {comment.user?._id === me._id && (
                                             <>
                                                 <Button
-                                                    className="pencil_button"
+                                                    className="rounded-pill"
                                                     size="sm"
                                                     variant={theme ? "outline-light" : "secondary"}
                                                 >
                                                     <i className="bi bi-pencil text-dark fs-5"></i>
                                                 </Button>
                                                 <Button
-                                                    className="pencil_button"
+                                                    className="rounded-pill"
                                                     size="sm"
                                                     variant={theme ? "outline-light" : "secondary"}
                                                     onClick={() => {
@@ -123,7 +123,7 @@ export const MainFeed = () => {
                                             </>
                                         )}
                                         <Button
-                                            className="pencil_button"
+                                            className="rounded-pill"
                                             size="sm"
                                             variant={theme ? "outline-light" : "secondary"}
                                         >

@@ -21,7 +21,7 @@ export const Experiences = () => {
                     <b>Esperienza</b>{" "}
                     <div className="ms-auto">
                         <Button
-                            className="pencil_button fs-4"
+                            className="rounded-pill fs-4"
                             size="sm"
                             variant={theme ? "outline-light" : "light"}
                             onClick={() => setModalShow(true)}
@@ -49,7 +49,7 @@ export const Experiences = () => {
                                         {experience.role}
                                         <div className="ms-auto">
                                             <Button
-                                                className="pencil_button ms-auto"
+                                                className="rounded-pill ms-auto"
                                                 size="sm"
                                                 variant={theme ? "outline-light" : "secondary"}
                                                 onClick={() => {
@@ -60,7 +60,7 @@ export const Experiences = () => {
                                                 <i className="bi bi-pencil text-dark fs-5"></i>
                                             </Button>
                                             <Button
-                                                className="pencil_button ms-auto"
+                                                className="rounded-pill ms-auto"
                                                 size="sm"
                                                 variant={theme ? "outline-light" : "secondary"}
                                                 onClick={() => {

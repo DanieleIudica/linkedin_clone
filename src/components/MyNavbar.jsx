@@ -97,9 +97,7 @@ export const MyNavbar = () => {
                                                 <img
                                                     src={me.image}
                                                     alt=""
-                                                    className="me-3 navImg"
-                                                    width="80"
-                                                    height="80"
+                                                    className="me-3 navImgDd"
                                                 />
                                                 <div>
                                                     <p className="fw-bold">

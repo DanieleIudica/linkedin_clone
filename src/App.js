@@ -5,6 +5,7 @@ import { User } from "./components/User";
 import { MyNavbar } from "./components/MyNavbar";
 import { useSelector } from "react-redux";
 import { Feed } from "./components/Feed";
+import OtherUsers from "./components/OtherUsers";
 
 function App() {
     const theme = useSelector((state) => state.user.theme);
@@ -20,6 +21,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<User />} />
                     <Route path="/feed" element={<Feed />} />
+                    <Route path="/others/:userId" element={<OtherUsers />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>

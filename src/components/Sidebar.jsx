@@ -3,8 +3,11 @@ import { Button } from "react-bootstrap";
 import { useEffect } from "react";
 import { getAllUsersAction } from "../redux/action";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import OtherUsers from "./OtherUsers";
 
 export const Sidebar = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const users = useSelector((state) => state.users.allUsers);
     const theme = useSelector((state) => state.user.theme);
@@ -54,6 +57,9 @@ export const Sidebar = () => {
                                             className="mt-2 rounded-pill fw-bold"
                                             variant="outline-secondary"
                                             size="sm"
+                                            onClick={()=>{
+                                                navigate('/others/' + user._id)
+                                            }}
                                         >
                                             Collegati
                                         </Button>

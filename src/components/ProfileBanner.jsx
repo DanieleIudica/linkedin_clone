@@ -25,8 +25,9 @@ const ProfileBanner = () => {
                                     <img
                                         className="profile_foto_image"
                                         src={me.image}
-                                        width="35%"
-                                        alt=""
+                                        width="150"
+                                        height="150"
+                                        alt="user_img"
                                         onClick={() => setModalShow(true)}
                                     />
                                 </div>

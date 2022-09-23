@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { getMyLastCommentsAction } from "../redux/action";
 
 export const Attivita = () => {
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
-    const comments = useSelector((state) => state.comments.myLastComments);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
+    const comments = useSelector((state) => state.main.comments.myLastComments);
     const dispatch = useDispatch();
-    const me = useSelector((state) => state.user.me);
+    const me = useSelector((state) => state.main.user.me);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,35 +23,38 @@ export const Attivita = () => {
                 <h5 className="d-flex">
                     <b>Attività</b>{" "}
                 </h5>
-                {comments && comments.map((comment, i) => (
-                    <div key={i}>
-                        <div className="d-flex mt-3">
-                            <Col xs={2}>
-                                <img
-                                    src={comment.image}
-                                    width="100"
-                                    height="100"
-                                    alt=""
-                                    className="attivitaImg mt-2"
-                                />
-                            </Col>
+                {comments &&
+                    comments.map((comment, i) => (
+                        <div key={i}>
+                            <div className="d-flex mt-3">
+                                <Col xs={2}>
+                                    <img
+                                        src={comment.image}
+                                        width="100"
+                                        height="100"
+                                        alt=""
+                                        className="attivitaImg mt-2"
+                                    />
+                                </Col>
 
-                            <Col xs={10}>
-                                <div onClick={() => navigate("/feed/" + comment._id)}>
-                                    <span>
-                                        Pubblicato da: <b>{comment.user.username}</b>
-                                    </span>
-                                    <br />
-                                    <span className="small">
-                                        <Moment format="DD-MM-YY HH:mm">{comment.updatedAt}</Moment>
-                                    </span>
-                                    <p>{comment.text}</p>
-                                </div>
-                            </Col>
+                                <Col xs={10}>
+                                    <div onClick={() => navigate("/feed/" + comment._id)}>
+                                        <span>
+                                            Pubblicato da: <b>{comment.user.username}</b>
+                                        </span>
+                                        <br />
+                                        <span className="small">
+                                            <Moment format="DD-MM-YY HH:mm">
+                                                {comment.updatedAt}
+                                            </Moment>
+                                        </span>
+                                        <p>{comment.text}</p>
+                                    </div>
+                                </Col>
+                            </div>
+                            <div className="divider"></div>
                         </div>
-                        <div className="divider"></div>
-                    </div>
-                ))}
+                    ))}
             </Container>
         </div>
     );

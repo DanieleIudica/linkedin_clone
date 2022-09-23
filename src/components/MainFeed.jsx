@@ -16,12 +16,12 @@ import { useNavigate, useParams } from "react-router-dom";
 export const MainFeed = () => {
     const { postId } = useParams();
     const navigate = useNavigate();
-    const me = useSelector((state) => state.user.me);
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+    const me = useSelector((state) => state.main.user.me);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
     const dispatch = useDispatch();
-    const comments = useSelector((state) => state.comments.allComments);
-    const commentsById = useSelector((state) => state.comments.commentsById);
+    const comments = useSelector((state) => state.main.comments.allComments);
+    const commentsById = useSelector((state) => state.main.comments.commentsById);
     const [modalShow, setModalShow] = useState(false);
     const [editModalShow, setEditModalShow] = useState(false);
 
@@ -108,7 +108,6 @@ export const MainFeed = () => {
                         </Col>
                         <Col xs={3} className="text-end">
                             {
-                             (
                                 <>
                                     <Button
                                         className="rounded-pill"
@@ -132,7 +131,7 @@ export const MainFeed = () => {
                                         <i className="bi bi-trash3 text-dark fs-5 "></i>
                                     </Button>
                                 </>
-                            )}
+                            }
                             <Button
                                 className="rounded-pill"
                                 size="sm"

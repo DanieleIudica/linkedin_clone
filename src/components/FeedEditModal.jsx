@@ -6,8 +6,8 @@ import { PutNews } from "../redux/action";
 const FeedEditModal = (props) => {
     const [imgPrew, setImgPrew] = useState("");
     const [file, setFile] = useState(null);
-    const me = useSelector((state) => state.user.me);
-    const post = useSelector((state) => state.comments.commentsById);
+    const me = useSelector((state) => state.main.user.me);
+    const post = useSelector((state) => state.main.comments.commentsById);
     const dispatch = useDispatch();
     const [text, setText] = useState("");
 

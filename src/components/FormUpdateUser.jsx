@@ -5,7 +5,7 @@ import { TOKEN, updateMeAction, URL } from "../redux/action";
 
 const FormUpdateUser = (props) => {
     const dispatch = useDispatch();
-    const me = useSelector((state) => state.user.me);
+    const me = useSelector((state) => state.main.user.me);
     const [file, setFile] = useState(null);
 
     const [nome, setNome] = useState(me.name);

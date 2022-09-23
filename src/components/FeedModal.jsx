@@ -5,7 +5,7 @@ import { postNews } from "../redux/action";
 
 const FeedModal = (props) => {
     const [file, setFile] = useState(null);
-    const me = useSelector((state) => state.user.me);
+    const me = useSelector((state) => state.main.user.me);
     const dispatch = useDispatch();
     const [text, setText] = useState("");
     const [imgPrew, setImgPrew] = useState("");

@@ -1,6 +1,6 @@
 import {
-    SET_DARK_THEME,
-    SET_LIGHT_THEME,
+    // SET_DARK_THEME,
+    // SET_LIGHT_THEME,
     SET_ME,
     UPDATE_ME,
     GET_ALL_USERS,
@@ -17,16 +17,16 @@ import {
 const initialState = {
     user: {
         me: null,
-        theme: true,
-        styles: {
-            light: {
-                backgroundColor: "white",
-            },
-            dark: {
-                backgroundColor: "rgb(29, 34, 38)",
-                color: "white",
-            },
-        },
+        // theme: true,
+        // styles: {
+        //     light: {
+        //         backgroundColor: "white",
+        //     },
+        //     dark: {
+        //         backgroundColor: "rgb(29, 34, 38)",
+        //         color: "white",
+        //     },
+        // },
 
         experiences: [],
         expId: "",
@@ -34,10 +34,10 @@ const initialState = {
     },
 
     users: { allUsers: [] },
-    comments: { 
+    comments: {
         allComments: [],
         commentsById: null,
-        myLastComments: []
+        myLastComments: [],
     },
 };
 
@@ -51,22 +51,22 @@ const mainReducer = (state = initialState, action) => {
                     me: action.payload,
                 },
             };
-        case SET_LIGHT_THEME:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    theme: action.payload,
-                },
-            };
-        case SET_DARK_THEME:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    theme: action.payload,
-                },
-            };
+        // case SET_LIGHT_THEME:
+        //     return {
+        //         ...state,
+        //         user: {
+        //             ...state.user,
+        //             theme: action.payload,
+        //         },
+        //     };
+        // case SET_DARK_THEME:
+        //     return {
+        //         ...state,
+        //         user: {
+        //             ...state.user,
+        //             theme: action.payload,
+        //         },
+        //     };
         case GET_ALL_USERS:
             return {
                 ...state,
@@ -92,16 +92,15 @@ const mainReducer = (state = initialState, action) => {
                     me: action.payload,
                 },
             };
-        
-            case SET_MY_LAST_COMMENTS:
-                return{
-                    ...state,
-                    comments:{
 
-                        ...state.comments,
-                        myLastComments: action.payload,
-                    }
-                }
+        case SET_MY_LAST_COMMENTS:
+            return {
+                ...state,
+                comments: {
+                    ...state.comments,
+                    myLastComments: action.payload,
+                },
+            };
 
         case GET_ALL_EXPERIENCES:
             return {
@@ -139,13 +138,13 @@ const mainReducer = (state = initialState, action) => {
             };
 
         case SET_COMMENT_BY_ID:
-            return{
+            return {
                 ...state,
-                comments:{
+                comments: {
                     ...state.comments,
                     commentsById: action.payload,
-                }
-            }
+                },
+            };
         default:
             return state;
     }

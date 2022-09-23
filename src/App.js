@@ -8,7 +8,7 @@ import { Feed } from "./components/Feed";
 import OtherUsers from "./components/OtherUsers";
 
 function App() {
-    const theme = useSelector((state) => state.user.theme);
+    const theme = useSelector((state) => state.userTheme.theme);
 
     return (
         <BrowserRouter>

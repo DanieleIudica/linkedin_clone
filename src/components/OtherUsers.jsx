@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,12 +7,10 @@ import MainUser from "./MainUser";
 import { MyFooter } from "./MyFooter";
 import { Sidebar } from "./Sidebar";
 
-
-    
-    const OtherUsers = () => {
+const OtherUsers = () => {
     const dispatch = useDispatch();
-    const me = useSelector((state) => state.user.me);
-    const {userId} = useParams();
+    const me = useSelector((state) => state.main.user.me);
+    const { userId } = useParams();
 
     useEffect(() => {
         dispatch(getUserByIdAction(userId));
@@ -25,7 +22,7 @@ import { Sidebar } from "./Sidebar";
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [me]);
 
-    return(
+    return (
         <Container className="mt-4">
             {me && (
                 <Row>
@@ -40,7 +37,7 @@ import { Sidebar } from "./Sidebar";
             )}
             <MyFooter />
         </Container>
-    )
-}
+    );
+};
 
-export default OtherUsers
+export default OtherUsers;

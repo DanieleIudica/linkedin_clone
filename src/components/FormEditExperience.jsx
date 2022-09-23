@@ -21,9 +21,9 @@ const FormEditExperience = (props) => {
     const [endDate, setEndDate] = useState(currentExp.endDate);
     const [description, setDescription] = useState(currentExp.description);
     const [area, setArea] = useState(currentExp.area);
-    const expId = useSelector((state) => state.user.expId);
-    const me = useSelector((state) => state.user.me);
-    const singleExp = useSelector((state) => state.user.singleExp);
+    const expId = useSelector((state) => state.main.user.expId);
+    const me = useSelector((state) => state.main.user.me);
+    const singleExp = useSelector((state) => state.main.user.singleExp);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

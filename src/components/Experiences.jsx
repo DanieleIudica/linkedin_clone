@@ -10,10 +10,10 @@ export const Experiences = () => {
     const dispatch = useDispatch();
     const [modalShow, setModalShow] = useState(false);
     const [editModalShow, setEditModalShow] = useState(false);
-    const me = useSelector((state) => state.user.me);
-    const experiences = useSelector((state) => state.user.experiences);
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+    const me = useSelector((state) => state.main.user.me);
+    const experiences = useSelector((state) => state.main.user.experiences);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
     return (
         <div className="mainDiv mb-1" style={theme ? styles.light : styles.dark}>
             <Container className="myContainer p-3">

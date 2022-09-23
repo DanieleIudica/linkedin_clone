@@ -2,9 +2,9 @@ import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const ProfileInformation = () => {
-    const me = useSelector((state) => state.user.me);
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+    const me = useSelector((state) => state.main.user.me);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
     return (
         <div className="mainDiv mb-2" style={theme ? styles.light : styles.dark}>
             <Container className="myContainer mt-3">

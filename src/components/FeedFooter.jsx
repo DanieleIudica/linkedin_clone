@@ -2,7 +2,7 @@ import { NavDropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const FeedFooter = () => {
-    const theme = useSelector((state) => state.user.theme);
+    const theme = useSelector((state) => state.userTheme.theme);
     return (
         <div
             className="text-center feedFooter my-4"

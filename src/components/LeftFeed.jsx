@@ -5,9 +5,9 @@ import { setMeAction } from "../redux/action";
 import { useNavigate } from "react-router-dom";
 
 export const LeftFeed = () => {
-    const me = useSelector((state) => state.user.me);
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+    const me = useSelector((state) => state.main.user.me);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

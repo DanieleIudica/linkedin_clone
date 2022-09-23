@@ -8,9 +8,9 @@ export const MyNavbar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
-    const me = useSelector((state) => state.user.me);
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+    const me = useSelector((state) => state.main.user.me);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
     const handleModal = () => setShow(!show);
 
     return (

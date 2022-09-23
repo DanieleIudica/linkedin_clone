@@ -8,7 +8,7 @@ import { Sidebar } from "./Sidebar";
 
 export const User = () => {
     const dispatch = useDispatch();
-    const me = useSelector((state) => state.user.me);
+    const me = useSelector((state) => state.main.user.me);
 
     useEffect(() => {
         dispatch(setMeAction());

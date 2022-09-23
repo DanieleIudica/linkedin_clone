@@ -9,9 +9,9 @@ import OtherUsers from "./OtherUsers";
 export const Sidebar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const users = useSelector((state) => state.users.allUsers);
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+    const users = useSelector((state) => state.main.users.allUsers);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
 
     useEffect(() => {
         dispatch(getAllUsersAction());
@@ -57,8 +57,8 @@ export const Sidebar = () => {
                                             className="mt-2 rounded-pill fw-bold"
                                             variant="outline-secondary"
                                             size="sm"
-                                            onClick={()=>{
-                                                navigate('/others/' + user._id)
+                                            onClick={() => {
+                                                navigate("/others/" + user._id);
                                             }}
                                         >
                                             Collegati

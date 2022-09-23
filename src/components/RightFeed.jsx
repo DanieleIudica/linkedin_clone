@@ -4,8 +4,8 @@ import FeedFooter from "./FeedFooter";
 
 export const RightFeed = () => {
     // const me = useSelector((state) => state.user.me);
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
     return (
         // <div className="feedDiv" style={theme ? styles.light : styles.dark}>
         //     RightFeed

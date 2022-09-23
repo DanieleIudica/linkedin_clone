@@ -1,29 +1,36 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import Carousel from "better-react-carousel";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FormUpdateUser from "./FormUpdateUser";
+import { useLocation } from "react-router-dom";
 
 const ProfileBanner = () => {
+    const location = useLocation()
     const me = useSelector((state) => state.main.user.me);
     const theme = useSelector((state) => state.userTheme.theme);
     const styles = useSelector((state) => state.userTheme.styles);
     const [modalShow, setModalShow] = useState(false);
+
+    useEffect(()=>{
+        console.log("LOCATION",location)
+    },[])
+
     return (
         <div className="mainDiv mb-2" style={theme ? styles.light : styles.dark}>
             <div className="firstDiv">
                 <div className="banner">
                     <div className="bg_image">
                         <div className="bg_image_container">
-                            {me.surname === "Iudica" ? (
-                                // ! DA VEDERE CON GAETANO
-                                <img src="./hero.jpg" width="100%" alt="hero" />
+                            {
+                            location.pathname.search("others") === -1 ? (
+                                <img src="/hero.jpg" width="100%" alt="hero" />
                             ) : (
                                 <img src="http://placekitten.com/700/200" width="100%" alt="" />
                             )}
                         </div>
                     </div>
-                    <Container className="myContainer">
+                    {  <Container className="myContainer">
                         <div className="personal_information">
                             <div className="profile_foto d-flex mb-4">
                                 <div className="profile_foto_container">
@@ -55,7 +62,7 @@ const ProfileBanner = () => {
                                         </svg>
                                     </div>
                                     <div className="icona_Profilo">
-                                        {me.surname === "Iudica" && (
+                                        {location.pathname.search("others") === -1  && (
                                             <Button
                                                 className="rounded-pill"
                                                 size="sm"
@@ -163,7 +170,7 @@ const ProfileBanner = () => {
                                 </div>
                             </div>
                         </div>
-                    </Container>
+                    </Container>}
                 </div>
             </div>
             <FormUpdateUser show={modalShow} onHide={() => setModalShow(false)} />

@@ -117,3 +117,7 @@ div.Carousel__ItemSet-sc-hyhecw-3:nth-child(1) > div:nth-child(1) > div:nth-chil
     border-radius: 50%;
     overflow: hidden;
 }
+
+.spinner{
+    margin: auto !important;
+}

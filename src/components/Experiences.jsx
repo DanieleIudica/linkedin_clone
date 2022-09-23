@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { Button, Col, Container } from "react-bootstrap";
+import { Button, Col, Container, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { delteteExperienceAction, setExpIdAction } from "../redux/action";
 import FormAddExperience from "./FormAddExperience";
 import FormEditExperience from "./FormEditExperience";
 import Moment from "react-moment";
+import { useLocation } from "react-router-dom";
 
 export const Experiences = () => {
+    const location = useLocation();
     const dispatch = useDispatch();
+    const loader = useSelector((state)=> state.main.loader)
     const [modalShow, setModalShow] = useState(false);
     const [editModalShow, setEditModalShow] = useState(false);
     const me = useSelector((state) => state.main.user.me);
@@ -16,10 +19,10 @@ export const Experiences = () => {
     const styles = useSelector((state) => state.userTheme.styles);
     return (
         <div className="mainDiv mb-1" style={theme ? styles.light : styles.dark}>
-            <Container className="myContainer p-3">
+            <  Container className="myContainer p-3">
                 <h5 className="d-flex">
                     <b>Esperienza</b>{" "}
-                    <div className="ms-auto">
+                   { location.pathname.search("others") === -1 && <div className="ms-auto">
                         <Button
                             className="rounded-pill fs-4"
                             size="sm"
@@ -28,9 +31,9 @@ export const Experiences = () => {
                         >
                             <i className="bi bi-plus-lg text-dark"></i>
                         </Button>
-                    </div>
+                    </div>}
                 </h5>
-                {experiences &&
+                {experiences &&  loader ? <div className="my-3 text-center"><Spinner  animation="border" variant="secondary" /></div> :
                     experiences.map((experience, i) => (
                         <div key={i}>
                             <div className="d-flex mt-3" key={i}>
@@ -47,7 +50,7 @@ export const Experiences = () => {
                                 <Col xs={10}>
                                     <span className="fw-bold d-flex">
                                         {experience.role}
-                                        <div className="ms-auto">
+                                      { location.pathname.search("others") === -1 && <div className="ms-auto">
                                             <Button
                                                 className="rounded-pill ms-auto"
                                                 size="sm"
@@ -74,7 +77,7 @@ export const Experiences = () => {
                                             >
                                                 <i className="bi bi-trash3 text-dark fs-5 "></i>
                                             </Button>
-                                        </div>
+                                        </div>}
                                     </span>
 
                                     <span>{experience.company}</span>

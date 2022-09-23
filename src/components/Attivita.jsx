@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { Col, Container } from "react-bootstrap";
+import { Col, Container, Spinner } from "react-bootstrap";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { getMyLastCommentsAction } from "../redux/action";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getMyLastCommentsAction, setMeAction } from "../redux/action";
 
 export const Attivita = () => {
+    const location = useLocation();
+    const loader = useSelector((state)=> state.main.loader)
     const theme = useSelector((state) => state.userTheme.theme);
     const styles = useSelector((state) => state.userTheme.styles);
     const comments = useSelector((state) => state.main.comments.myLastComments);
@@ -15,11 +17,11 @@ export const Attivita = () => {
 
     useEffect(() => {
         dispatch(getMyLastCommentsAction(me._id));
-    }, []);
+    }, [location]);
 
     return (
         <div className="mainDiv mb-1" style={theme ? styles.light : styles.dark}>
-            <Container className="myContainer p-3">
+            { loader ? <div className="my-3 text-center"><Spinner  animation="border" variant="secondary" /></div> : <Container className="myContainer p-3">
                 <h5 className="d-flex">
                     <b>Attività</b>{" "}
                 </h5>
@@ -55,7 +57,7 @@ export const Attivita = () => {
                             <div className="divider"></div>
                         </div>
                     ))}
-            </Container>
+            </Container>}
         </div>
     );
 };

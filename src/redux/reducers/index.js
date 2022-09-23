@@ -12,26 +12,20 @@ import {
     GET_ALL_COMMENTS,
     SET_COMMENT_BY_ID,
     SET_MY_LAST_COMMENTS,
+    SET_LOADER,
+    SET_LOADER_COMMENTS,
 } from "../action";
 
 const initialState = {
     user: {
         me: null,
-        // theme: true,
-        // styles: {
-        //     light: {
-        //         backgroundColor: "white",
-        //     },
-        //     dark: {
-        //         backgroundColor: "rgb(29, 34, 38)",
-        //         color: "white",
-        //     },
-        // },
-
         experiences: [],
         expId: "",
         singleExp: null,
     },
+
+    loader:false,
+    loaderComment:false,
 
     users: { allUsers: [] },
     comments: {
@@ -145,6 +139,19 @@ const mainReducer = (state = initialState, action) => {
                     commentsById: action.payload,
                 },
             };
+
+        case SET_LOADER:
+            return {
+                ...state,
+                loader: action.payload,
+            }
+
+            case SET_LOADER_COMMENTS:
+                return {
+                    ...state,
+                    loaderComment: action.payload,
+                }
+
         default:
             return state;
     }

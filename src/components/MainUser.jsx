@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap";
+import { Attivita } from "./Attivita";
 import { Experiences } from "./Experiences";
 
 import ProfileBanner from "./ProfileBanner";
@@ -10,6 +11,7 @@ const MainUser = ({ user }) => {
             <ProfileBanner user={user} />
             <ProfileInformation user={user} />
             <Experiences />
+            <Attivita />
         </Container>
     );
 };

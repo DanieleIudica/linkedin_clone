@@ -278,10 +278,6 @@ export const putExperienceAction = (userId, expId, experience) => {
                 let data = await response.json();
                 console.log(data);
                 dispatch(getAllExperiencesAction(userId));
-                /*  dispatch({
-                    type: PUT_EXPERIENCES,
-                    // payload: data,
-                }); */
             }
         } catch (err) {
             console.log(err);

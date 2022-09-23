@@ -76,18 +76,6 @@ export const MainFeed = () => {
                         <div key={i} className="feedDiv" style={theme ? styles.light : styles.dark}>
                             <Row>
                                 <Col xs={1}>
-                                    {/* PENSO SI POSSA ELIMINARE */}
-                                    {/* {comment.user?._id === me._id ? (
-                                        <img src={me.image} alt="" className="navImgFeed " />
-                                    ) : (
-                                        <img
-                                            src={comment.user.image}
-                                            alt=""
-                                            className="navImgFeed"
-                                            width="50"
-                                            height="50"
-                                        />
-                                    )} */}
                                     <img
                                         src={comment.user.image}
                                         alt=""

@@ -24,11 +24,11 @@ export const User = () => {
         <Container className="mt-4">
             {me && (
                 <Row>
-                    <Col xs={8}>
+                    <Col xs={8} id="mainWidth">
                         <MainUser />
                     </Col>
 
-                    <Col xs={4}>
+                    <Col xs={4} id="displaySide">
                         <Sidebar />
                     </Col>
                 </Row>

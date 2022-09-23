@@ -30,8 +30,6 @@ const ProfileBanner = () => {
                                     <img
                                         className="profile_foto_image"
                                         src={me.image}
-                                        width="150"
-                                        height="150"
                                         alt="user_img"
                                         onClick={() => setModalShow(true)}
                                     />
@@ -92,18 +90,27 @@ const ProfileBanner = () => {
                                 </div>
 
                                 <div className="d-flex ">
-                                    <Button className=" mx-2 profilo_btn" variant="primary">
+                                    <Button
+                                        className=" mx-2 profilo_btn"
+                                        variant="primary"
+                                        id="mediaBtns"
+                                    >
                                         Disponibile per
                                     </Button>
 
                                     <Button
                                         className="mx-2 profilo_btn fw-bold"
                                         variant="outline-primary"
+                                        id="mediaBtns"
                                     >
                                         Aggiungi sezione del profilo
                                     </Button>
 
-                                    <Button className="mx-2 profilo_btn" variant="outline-dark">
+                                    <Button
+                                        className="mx-2 profilo_btn"
+                                        variant="outline-dark"
+                                        id="mediaBtns"
+                                    >
                                         Altro
                                     </Button>
                                 </div>

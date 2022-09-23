@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Col, Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -25,9 +25,9 @@ export const Attivita = () => {
                 </h5>
                 {comments &&
                     comments.map((comment, i) => (
-                        <div key={i}>
-                            <div className="d-flex mt-3">
-                                <Col xs={2}>
+                        <>
+                            <Row key={i} className="my-3">
+                                <Col xs={2} className="me-5">
                                     <img
                                         src={comment.image}
                                         width="100"
@@ -37,7 +37,7 @@ export const Attivita = () => {
                                     />
                                 </Col>
 
-                                <Col xs={10}>
+                                <Col xs={6} className="m-2 pointer">
                                     <div onClick={() => navigate("/feed/" + comment._id)}>
                                         <span>
                                             Pubblicato da: <b>{comment.user.username}</b>
@@ -51,9 +51,9 @@ export const Attivita = () => {
                                         <p>{comment.text}</p>
                                     </div>
                                 </Col>
-                            </div>
+                            </Row>
                             <div className="divider"></div>
-                        </div>
+                        </>
                     ))}
             </Container>
         </div>

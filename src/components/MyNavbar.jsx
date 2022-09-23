@@ -50,23 +50,23 @@ export const MyNavbar = () => {
                             }}
                         >
                             <i className="bi bi-house-door-fill"></i>
-                            Home
+                            <span>Home</span>
                         </Nav.Link>
                         <Nav.Link id="navLink">
                             <i className="bi bi-people-fill"></i>
-                            Rete
+                            <span>Rete</span>
                         </Nav.Link>
                         <Nav.Link id="navLink">
                             <i className="bi bi-briefcase-fill"></i>
-                            Lavoro
+                            <span>Lavoro</span>
                         </Nav.Link>
                         <Nav.Link id="navLink">
                             <i className="bi bi-chat-left-dots-fill"></i>
-                            Messaggistica
+                            <span>Messaggistica</span>
                         </Nav.Link>
                         <Nav.Link id="navLink">
                             <i className="bi bi-bell-fill"></i>
-                            Notifiche
+                            <span>Notifiche</span>
                         </Nav.Link>
                         {me && (
                             <div id="navLink">
@@ -327,7 +327,7 @@ export const MyNavbar = () => {
                         </div>
                         <Nav.Link id="navLink">
                             <i className="bi bi-signpost-fill"></i>
-                            Pubblica offerta di lavoro gratuita
+                            <span>Pubblica offerta di lavoro gratuita</span>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

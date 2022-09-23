@@ -146,6 +146,59 @@ export const getAllCommentsAction = () => {
     };
 };
 
+export const getMyLastCommentsAction = (userId) => {
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(URL + "/posts/", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
+
+            if (response.ok) {
+                let data = await response.json();
+                data = data.slice(-50, data.length);
+                data = data.reverse();
+                data = data.filter(comment => comment.user._id === userId );
+                data = data.slice(0,5)
+                console.log(data);
+                dispatch({
+                    type: GET_ALL_COMMENTS,
+                    payload: data,
+                });
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+};
+
+export const getCommentsByIdAction = (postId) => {
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(URL + "/posts/" + postId, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
+
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: GET_ALL_COMMENTS,
+                    payload: data,
+                });
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+};
+
 export const getAllExperiencesAction = (userId) => {
     return async (dispatch, getState) => {
         try {

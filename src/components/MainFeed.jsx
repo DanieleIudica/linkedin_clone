@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteNews, getAllCommentsAction, getNewsById, setMeAction } from "../redux/action";
+import {
+    deleteNews,
+    getAllCommentsAction,
+    getCommentsByIdAction,
+    getNewsById,
+    setMeAction,
+} from "../redux/action";
 import Moment from "react-moment";
 import FeedModal from "./FeedModal";
 import FeedEditModal from "./FeedEditModal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const MainFeed = () => {
+    const { postId } = useParams();
     const navigate = useNavigate();
     const me = useSelector((state) => state.user.me);
     const theme = useSelector((state) => state.user.theme);
@@ -18,8 +25,13 @@ export const MainFeed = () => {
     const [editModalShow, setEditModalShow] = useState(false);
 
     useEffect(() => {
+        console.log("params di feed", postId);
         dispatch(setMeAction());
-        dispatch(getAllCommentsAction());
+        if (postId) {
+            dispatch(getCommentsByIdAction(postId));
+        } else {
+            dispatch(getAllCommentsAction());
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (

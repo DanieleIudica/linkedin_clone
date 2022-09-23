@@ -107,7 +107,7 @@ export const MainFeed = () => {
                             <Col md={3} lg={2}>
                                 <div className="mainFeedHover">
                                     <i className="bi bi-play-btn-fill fs-5"></i>
-                                    <span>Video</span>
+                                    <span> Video</span>
                                 </div>
                             </Col>
                             <Col md={3} lg={4}>

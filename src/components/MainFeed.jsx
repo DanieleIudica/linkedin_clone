@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
     deleteNews,
@@ -16,6 +16,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export const MainFeed = () => {
     const { postId } = useParams();
     const navigate = useNavigate();
+    const loaderComment = useSelector((state) => state.main.loaderComment);
     const me = useSelector((state) => state.main.user.me);
     const theme = useSelector((state) => state.userTheme.theme);
     const styles = useSelector((state) => state.userTheme.styles);
@@ -236,7 +237,12 @@ export const MainFeed = () => {
             )}
 
             {console.log(comments)}
-            {comments &&
+            {loaderComment && me && !postId ? (
+                <div className="my-3 text-center">
+                    <Spinner animation="border" variant="secondary" />
+                </div>
+            ) : (
+                comments &&
                 !postId &&
                 comments.map((comment, i) => {
                     return (
@@ -346,7 +352,8 @@ export const MainFeed = () => {
                             </Row>
                         </div>
                     );
-                })}
+                })
+            )}
         </>
     );
 };

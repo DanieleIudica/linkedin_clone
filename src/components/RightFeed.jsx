@@ -13,14 +13,14 @@ export const RightFeed = () => {
         <>
             <div className="feedDiv" style={theme ? styles.light : styles.dark}>
                 <img
-                    src={theme ? "./feedbar_img/notizie.png" : "./feedbar_img/notizie_dark.png"}
+                    src={theme ? "/feedbar_img/notizie.png" : "/feedbar_img/notizie_dark.png"}
                     alt="notizie"
                     width="100%"
                 />
             </div>
             <div className="feedDiv" style={theme ? styles.light : styles.dark}>
                 <img
-                    src={theme ? "./sidebar_img/promosso.png" : "./sidebar_img/promosso_dark.png"}
+                    src={theme ? "/sidebar_img/promosso.png" : "/sidebar_img/promosso_dark.png"}
                     alt="promosso"
                     width="100%"
                 />

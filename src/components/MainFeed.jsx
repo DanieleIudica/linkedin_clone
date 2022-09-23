@@ -34,6 +34,7 @@ export const MainFeed = () => {
         dispatch(getAllCommentsAction());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
     return (
         <>
             <FeedEditModal show={editModalShow} onHide={() => setEditModalShow(false)} />
@@ -86,7 +87,7 @@ export const MainFeed = () => {
                     <Row>
                         <Col xs={1}>
                             <img
-                                src={commentsById.user.image}
+                                src={me.image}
                                 alt=""
                                 className="navImgFeed"
                                 width="50"
@@ -106,7 +107,8 @@ export const MainFeed = () => {
                             <Moment format="DD-MM-YY HH:mm">{commentsById.createdAt}</Moment>
                         </Col>
                         <Col xs={3} className="text-end">
-                            {commentsById.user?._id === me._id && (
+                            {
+                             (
                                 <>
                                     <Button
                                         className="rounded-pill"

@@ -11,6 +11,7 @@ import {
     GET_EXPERIENCE,
     GET_ALL_COMMENTS,
     SET_COMMENT_BY_ID,
+    SET_MY_LAST_COMMENTS,
 } from "../action";
 
 const initialState = {
@@ -35,7 +36,8 @@ const initialState = {
     users: { allUsers: [] },
     comments: { 
         allComments: [],
-        commentsById: null 
+        commentsById: null,
+        myLastComments: []
     },
 };
 
@@ -90,6 +92,16 @@ const mainReducer = (state = initialState, action) => {
                     me: action.payload,
                 },
             };
+        
+            case SET_MY_LAST_COMMENTS:
+                return{
+                    ...state,
+                    comments:{
+
+                        ...state.comments,
+                        myLastComments: action.payload,
+                    }
+                }
 
         case GET_ALL_EXPERIENCES:
             return {

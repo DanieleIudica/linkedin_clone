@@ -29,7 +29,6 @@ export const LeftFeed = () => {
                                         <img
                                             className="feed_foto_image"
                                             src={me.image}
-                                            width="80"
                                             alt=""
                                             onClick={() => {
                                                 setTimeout(() => {

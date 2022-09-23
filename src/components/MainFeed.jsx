@@ -53,7 +53,6 @@ export const MainFeed = () => {
                                         <img
                                             className="main_feed_foto_image"
                                             src={me.image}
-                                            width="80"
                                             alt=""
                                             onClick={() => {
                                                 setTimeout(() => {
@@ -98,24 +97,24 @@ export const MainFeed = () => {
                             </Col>
                         </Row>
                         <Row className="text-center mt-3 fw-bold text-secondary">
-                            <Col md={3} lg={2}>
+                            <Col xs={3} md={3} lg={2}>
                                 <div className="mainFeedHover" onClick={() => setModalShow(true)}>
                                     <i className="bi bi-image fs-5"></i> <span>Foto</span>
                                 </div>
                             </Col>
-                            <Col md={3} lg={2}>
+                            <Col xs={3} md={3} lg={2}>
                                 <div className="mainFeedHover">
                                     <i className="bi bi-play-btn-fill fs-5"></i>
                                     <span>Video</span>
                                 </div>
                             </Col>
-                            <Col md={3} lg={4}>
+                            <Col xs={3} md={3} lg={4}>
                                 <div className="mainFeedHover">
                                     <i className="bi bi-briefcase-fill fs-5"></i>{" "}
                                     <span>Offerta di lavoro</span>
                                 </div>
                             </Col>
-                            <Col md={3} lg={4}>
+                            <Col xs={3} md={3} lg={4}>
                                 <div className="mainFeedHover">
                                     <i className="bi bi bi-file-text-fill fs-5"></i>{" "}
                                     <span>Scrivi un articolo</span>

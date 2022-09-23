@@ -72,6 +72,7 @@ export const Sidebar = () => {
                 <img
                     src={theme ? "/sidebar_img/promosso.png" : "/sidebar_img/promosso_dark.png"}
                     alt=""
+                    width="100%"
                 />
             </div>
             {/* <div className="sideDiv text-center" style={theme ? styles.light : styles.dark}>

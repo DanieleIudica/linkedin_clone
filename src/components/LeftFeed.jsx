@@ -43,7 +43,7 @@ export const LeftFeed = () => {
                             <Container className="myContainer">
                                 <div className="info_contatto_feed text-center mb-2">
                                     <span
-                                        className="fw-bold userLink"
+                                        className="fw-bold pointer"
                                         onClick={() => {
                                             setTimeout(() => {
                                                 navigate("/");

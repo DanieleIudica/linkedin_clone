@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
     deleteNews,
@@ -40,44 +40,90 @@ export const MainFeed = () => {
             <FeedEditModal show={editModalShow} onHide={() => setEditModalShow(false)} />
             <FeedModal show={modalShow} onHide={() => setModalShow(false)} />
             {me && (
-                <div className="feedDiv" style={theme ? styles.light : styles.dark}>
-                    <Row>
-                        <Col xs={1}>
-                            <img src={me.image} alt="" className="navImgFeed " />
-                        </Col>
-                        <Col xs={11} className="ps-4">
-                            <Form.Control
-                                type="text"
-                                placeholder="Avvia un post"
-                                className="rounded-pill mt-2 p-2 ps-3 newPostInput"
-                                readOnly={true}
-                                onClick={() => setModalShow(true)}
-                            />
-                        </Col>
-                    </Row>
-                    <Row className="text-center mt-3 fw-bold text-secondary">
-                        <Col xs={2}>
-                            <div className="mainFeedHover" onClick={() => setModalShow(true)}>
-                                <i className="bi bi-image fs-5"></i> Foto
+                <>
+                    <div
+                        className="feedProfileDivMedia mb-2"
+                        style={theme ? styles.light : styles.dark}
+                    >
+                        <div className="banner">
+                            <div className="bg_image">
+                                <div className="bg_image_feed mb-5">
+                                    <img src="/hero.jpg" width="100%" height="90" alt="hero" />
+                                    <div>
+                                        <img
+                                            className="main_feed_foto_image"
+                                            src={me.image}
+                                            width="80"
+                                            alt=""
+                                            onClick={() => {
+                                                setTimeout(() => {
+                                                    navigate("/");
+                                                }, 500);
+                                            }}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                        </Col>
-                        <Col xs={2}>
-                            <div className="mainFeedHover">
-                                <i className="bi bi-play-btn-fill fs-5"></i> Video
-                            </div>
-                        </Col>
-                        <Col xs={4}>
-                            <div className="mainFeedHover">
-                                <i className="bi bi-briefcase-fill fs-5"></i> Offerta di lavoro
-                            </div>
-                        </Col>
-                        <Col xs={4}>
-                            <div className="mainFeedHover">
-                                <i className="bi bi bi-file-text-fill fs-5"></i> Scrivi un articolo
-                            </div>
-                        </Col>
-                    </Row>
-                </div>
+                            <Container className="myContainer">
+                                <div className="info_contatto_feed text-center mb-2">
+                                    <span
+                                        className="fw-bold pointer"
+                                        onClick={() => {
+                                            setTimeout(() => {
+                                                navigate("/");
+                                            }, 500);
+                                        }}
+                                    >
+                                        {me.name} {me.surname}
+                                    </span>{" "}
+                                    <br />
+                                    <span className="small">{me.title}</span>
+                                </div>
+                            </Container>
+                        </div>
+                    </div>
+                    <div className="feedDiv" style={theme ? styles.light : styles.dark}>
+                        <Row>
+                            <Col xs={1} className="me-3">
+                                <img src={me.image} alt="" className="navImgFeed " />
+                            </Col>
+                            <Col xs={10} className="ps-4">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Avvia un post"
+                                    className="rounded-pill mt-2 p-2 ps-3 newPostInput"
+                                    readOnly={true}
+                                    onClick={() => setModalShow(true)}
+                                />
+                            </Col>
+                        </Row>
+                        <Row className="text-center mt-3 fw-bold text-secondary">
+                            <Col md={3} lg={2}>
+                                <div className="mainFeedHover" onClick={() => setModalShow(true)}>
+                                    <i className="bi bi-image fs-5"></i> <span>Foto</span>
+                                </div>
+                            </Col>
+                            <Col md={3} lg={2}>
+                                <div className="mainFeedHover">
+                                    <i className="bi bi-play-btn-fill fs-5"></i>
+                                    <span>Video</span>
+                                </div>
+                            </Col>
+                            <Col md={3} lg={4}>
+                                <div className="mainFeedHover">
+                                    <i className="bi bi-briefcase-fill fs-5"></i>{" "}
+                                    <span>Offerta di lavoro</span>
+                                </div>
+                            </Col>
+                            <Col md={3} lg={4}>
+                                <div className="mainFeedHover">
+                                    <i className="bi bi bi-file-text-fill fs-5"></i>{" "}
+                                    <span>Scrivi un articolo</span>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </>
             )}
 
             <div className="divider mb-2"></div>
@@ -85,7 +131,7 @@ export const MainFeed = () => {
             {postId && commentsById && (
                 <div className="feedDiv" style={theme ? styles.light : styles.dark}>
                     <Row>
-                        <Col xs={1}>
+                        <Col xs={1} className="me-3">
                             <img
                                 src={me.image}
                                 alt=""
@@ -94,7 +140,7 @@ export const MainFeed = () => {
                                 height="50"
                             />
                         </Col>
-                        <Col xs={8} className="ps-4">
+                        <Col xs={7} className="ps-4">
                             <span
                                 className="fw-bold userLink"
                                 onClick={() => {
@@ -196,7 +242,7 @@ export const MainFeed = () => {
                     return (
                         <div key={i} className="feedDiv" style={theme ? styles.light : styles.dark}>
                             <Row>
-                                <Col xs={1}>
+                                <Col xs={1} className="me-3">
                                     <img
                                         src={comment.user.image}
                                         alt=""
@@ -205,7 +251,7 @@ export const MainFeed = () => {
                                         height="50"
                                     />
                                 </Col>
-                                <Col xs={8} className="ps-4">
+                                <Col xs={7} className="ps-4">
                                     <span
                                         className="fw-bold userLink"
                                         onClick={() => {

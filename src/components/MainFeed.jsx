@@ -21,6 +21,7 @@ export const MainFeed = () => {
     const styles = useSelector((state) => state.user.styles);
     const dispatch = useDispatch();
     const comments = useSelector((state) => state.comments.allComments);
+    const commentsById = useSelector((state) => state.comments.commentsById);
     const [modalShow, setModalShow] = useState(false);
     const [editModalShow, setEditModalShow] = useState(false);
 
@@ -29,9 +30,8 @@ export const MainFeed = () => {
         dispatch(setMeAction());
         if (postId) {
             dispatch(getCommentsByIdAction(postId));
-        } else {
-            dispatch(getAllCommentsAction());
         }
+        dispatch(getAllCommentsAction());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
@@ -81,8 +81,116 @@ export const MainFeed = () => {
 
             <div className="divider mb-2"></div>
 
+            {postId && commentsById && (
+                <div className="feedDiv" style={theme ? styles.light : styles.dark}>
+                    <Row>
+                        <Col xs={1}>
+                            <img
+                                src={commentsById.user.image}
+                                alt=""
+                                className="navImgFeed"
+                                width="50"
+                                height="50"
+                            />
+                        </Col>
+                        <Col xs={8} className="ps-4">
+                            <span
+                                className="fw-bold userLink"
+                                onClick={() => {
+                                    navigate("../others/" + commentsById.user._id);
+                                }}
+                            >
+                                {commentsById.username}{" "}
+                            </span>
+                            <br />
+                            <Moment format="DD-MM-YY HH:mm">{commentsById.createdAt}</Moment>
+                        </Col>
+                        <Col xs={3} className="text-end">
+                            {commentsById.user?._id === me._id && (
+                                <>
+                                    <Button
+                                        className="rounded-pill"
+                                        size="sm"
+                                        variant={theme ? "outline-light" : "secondary"}
+                                        onClick={() => {
+                                            dispatch(getNewsById(commentsById._id));
+                                            setEditModalShow(true);
+                                        }}
+                                    >
+                                        <i className="bi bi-pencil text-dark fs-5"></i>
+                                    </Button>
+                                    <Button
+                                        className="rounded-pill"
+                                        size="sm"
+                                        variant={theme ? "outline-light" : "secondary"}
+                                        onClick={() => {
+                                            dispatch(deleteNews(commentsById._id));
+                                        }}
+                                    >
+                                        <i className="bi bi-trash3 text-dark fs-5 "></i>
+                                    </Button>
+                                </>
+                            )}
+                            <Button
+                                className="rounded-pill"
+                                size="sm"
+                                variant={theme ? "outline-light" : "secondary"}
+                            >
+                                <i className="bi bi-three-dots text-dark fs-5"></i>
+                            </Button>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <p>{commentsById.text}</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="text-center">
+                            {commentsById.image && (
+                                <img src={commentsById.image} alt="" width="100%" />
+                            )}
+                        </Col>
+                    </Row>
+                    <Row className="text-secondary mt-1">
+                        <Col>
+                            <p>
+                                <i className="bi bi-hand-thumbs-up-fill text-primary"></i> 32.998
+                            </p>
+                        </Col>
+                        <Col className="text-end">
+                            <p>672 commenti - 425 condivisioni</p>
+                        </Col>
+                    </Row>
+                    <div className="divider"></div>
+                    <Row className="text-center mt-3 fw-bold text-secondary">
+                        <Col xs={3}>
+                            <div className="mainFeedHover">
+                                <i className="bi bi-hand-thumbs-up fs-4"></i> Consiglia
+                            </div>
+                        </Col>
+                        <Col xs={3}>
+                            <div className="mainFeedHover">
+                                <i className="bi bi-chat-text fs-4"></i> Commenta
+                            </div>
+                        </Col>
+                        <Col xs={3}>
+                            <div className="mainFeedHover">
+                                <i className="bi bi-arrow-90deg-right fs-4"></i> Condividi
+                            </div>
+                        </Col>
+                        <Col xs={3}>
+                            <div className="mainFeedHover">
+                                <i className="bi bi bi-send-fill fs-4"></i> Invia
+                            </div>
+                        </Col>
+                    </Row>
+                </div>
+            )}
+
             {console.log(comments)}
             {comments &&
+                !postId &&
                 comments.map((comment, i) => {
                     return (
                         <div key={i} className="feedDiv" style={theme ? styles.light : styles.dark}>

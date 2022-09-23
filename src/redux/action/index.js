@@ -160,8 +160,8 @@ export const getMyLastCommentsAction = (userId) => {
                 let data = await response.json();
                 data = data.slice(-50, data.length);
                 data = data.reverse();
-                data = data.filter(comment => comment.user._id === userId );
-                data = data.slice(0,5)
+                data = data.filter((comment) => comment.user._id === userId);
+                data = data.slice(0, 5);
                 console.log(data);
                 dispatch({
                     type: GET_ALL_COMMENTS,
@@ -188,7 +188,7 @@ export const getCommentsByIdAction = (postId) => {
             if (response.ok) {
                 let data = await response.json();
                 dispatch({
-                    type: GET_ALL_COMMENTS,
+                    type: SET_COMMENT_BY_ID,
                     payload: data,
                 });
                 console.log(data);

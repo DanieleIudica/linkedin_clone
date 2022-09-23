@@ -24,7 +24,7 @@ export const LeftFeed = () => {
                         <div className="banner">
                             <div className="bg_image">
                                 <div className="bg_image_feed mb-5">
-                                    <img src="./hero.jpg" width="100%" height="70" alt="hero" />
+                                    <img src="/hero.jpg" width="100%" height="70" alt="hero" />
                                     <div>
                                         <img
                                             className="feed_foto_image"
@@ -84,7 +84,7 @@ export const LeftFeed = () => {
             )}
             <div className="feedDiv" style={theme ? styles.light : styles.dark}>
                 <img
-                    src={theme ? "./feedbar_img/recenti.png" : "./feedbar_img/recenti_dark.png"}
+                    src={theme ? "/feedbar_img/recenti.png" : "/feedbar_img/recenti_dark.png"}
                     alt=""
                     width="90%"
                 />

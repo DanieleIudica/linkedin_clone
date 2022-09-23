@@ -7,7 +7,7 @@ export const MyFooter = () => {
             <footer className="mt-5">
                 <Row>
                     <Col className="mb-2">
-                        <img src="./icons/LI-Logo.png" alt="logo" width="100px" />
+                        <img src="/icons/LI-Logo.png" alt="logo" width="100px" />
                     </Col>
                 </Row>
                 <Row>

@@ -72,7 +72,7 @@ const FeedFooter = () => {
             <p>
                 {" "}
                 <img
-                    src="./icons/LI-Logo.png"
+                    src="/icons/LI-Logo.png"
                     width="60px"
                     style={{ marginTop: "-3px" }}
                     alt=""

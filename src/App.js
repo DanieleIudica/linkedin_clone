@@ -20,7 +20,7 @@ function App() {
                 <MyNavbar />
                 <Routes>
                     <Route path="/" element={<User />} />
-                    <Route path="/feed" element={<Feed />} />
+                    <Route path="/feed/" element={<Feed />} />
                     <Route path="/feed/:postId" element={<Feed />} />
                     <Route path="/others/:userId" element={<OtherUsers />} />
                     <Route path="*" element={<NotFound />} />

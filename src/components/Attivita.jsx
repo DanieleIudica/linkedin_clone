@@ -8,7 +8,7 @@ import { getMyLastCommentsAction } from "../redux/action";
 export const Attivita = () => {
     const theme = useSelector((state) => state.user.theme);
     const styles = useSelector((state) => state.user.styles);
-    const comments = useSelector((state) => state.comments.allComments);
+    const comments = useSelector((state) => state.comments.myLastComments);
     const dispatch = useDispatch();
     const me = useSelector((state) => state.user.me);
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ export const Attivita = () => {
                 <h5 className="d-flex">
                     <b>Attività</b>{" "}
                 </h5>
-                {comments.map((comment, i) => (
+                {comments && comments.map((comment, i) => (
                     <div key={i}>
                         <div className="d-flex mt-3">
                             <Col xs={2}>

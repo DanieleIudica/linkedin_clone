@@ -10,6 +10,7 @@ export const POST_NEW_EXPERIENCES = "POST_NEW_EXPERIENCES";
 export const PUT_EXPERIENCES = "PUT_EXPERIENCES";
 export const SET_EXP_ID = "SET_EXP_ID";
 export const SET_COMMENT_BY_ID = "SET_COMMENT_BY_ID";
+export const SET_MY_LAST_COMMENTS = "SET_MY_LAST_COMMENTS";
 export const URL = "https://striveschool-api.herokuapp.com/api";
 export const TOKEN =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWI3OTZkNzlhNTAwMTUwOTAyZWQiLCJpYXQiOjE2NjM1NzI4NTcsImV4cCI6MTY2NDc4MjQ1N30.j_4RiP8WxrixXsZ5dbWKH8rj-w44Os-v5Mxa_rlKoHU";
@@ -164,7 +165,7 @@ export const getMyLastCommentsAction = (userId) => {
                 data = data.slice(0, 5);
                 console.log(data);
                 dispatch({
-                    type: GET_ALL_COMMENTS,
+                    type: SET_MY_LAST_COMMENTS,
                     payload: data,
                 });
                 console.log(data);
@@ -390,6 +391,7 @@ export const deleteNews = (postId) => {
 
             if (response.ok) {
                 dispatch(getAllCommentsAction());
+                dispatch(getCommentsByIdAction(postId))
             }
         } catch (err) {
             console.log(err);
@@ -445,10 +447,12 @@ export const PutNews = (postId, post, file) => {
 
                         if (response2.ok) {
                             dispatch(getAllCommentsAction());
+                           dispatch(getCommentsByIdAction(postId))
                         }
                     } catch (e) {}
                 } else {
                     dispatch(getAllCommentsAction());
+                    dispatch(getCommentsByIdAction(postId))
                 }
             }
         } catch (err) {}

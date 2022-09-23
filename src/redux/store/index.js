@@ -1,12 +1,28 @@
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import mainReducer from "../reducers";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import themeReducer from "../reducers/themeReducer";
 
-// questo file si occupa di creare lo store all'avvio dell'applicazione
+const persistConfig = {
+    key: "root",
+    whitelist: ["userTheme"],
+    storage,
+};
 
-import { configureStore } from '@reduxjs/toolkit'
-import mainReducer from '../reducers' // basta puntare la cartella
-// dove è contenuto il file index.js
+const bigReducer = combineReducers({
+    main: mainReducer,
+    userTheme: themeReducer,
+});
+const persistedReducer = persistReducer(persistConfig, bigReducer);
 
-const store = configureStore({
-  reducer: mainReducer,
-})
+export const store = configureStore({
+    reducer: persistedReducer,
 
-export default store
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
+});
+
+export const persistor = persistStore(store);

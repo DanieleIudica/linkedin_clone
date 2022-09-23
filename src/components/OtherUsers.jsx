@@ -1,19 +1,21 @@
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllExperiencesAction, setMeAction } from "../redux/action";
+import { useParams } from "react-router-dom";
+import { getAllExperiencesAction, getUserByIdAction, setMeAction } from "../redux/action";
 import MainUser from "./MainUser";
 import { MyFooter } from "./MyFooter";
 import { Sidebar } from "./Sidebar";
 
-export const User = () => {
+const OtherUsers = () => {
     const dispatch = useDispatch();
     const me = useSelector((state) => state.main.user.me);
+    const { userId } = useParams();
 
     useEffect(() => {
-        dispatch(setMeAction());
+        dispatch(getUserByIdAction(userId));
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [userId]);
 
     useEffect(() => {
         if (me) dispatch(getAllExperiencesAction(me._id));
@@ -37,3 +39,5 @@ export const User = () => {
         </Container>
     );
 };
+
+export default OtherUsers;

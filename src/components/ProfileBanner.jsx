@@ -1,18 +1,26 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Carousel from "better-react-carousel";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import FormUpdateUser from "./FormUpdateUser";
 
 const ProfileBanner = () => {
-    const me = useSelector((state) => state.user.me);
-    const theme = useSelector((state) => state.user.theme);
-    const styles = useSelector((state) => state.user.styles);
+    const me = useSelector((state) => state.main.user.me);
+    const theme = useSelector((state) => state.userTheme.theme);
+    const styles = useSelector((state) => state.userTheme.styles);
+    const [modalShow, setModalShow] = useState(false);
     return (
-        <div className="mainDiv mb-5" style={theme ? styles.light : styles.dark}>
+        <div className="mainDiv mb-2" style={theme ? styles.light : styles.dark}>
             <div className="firstDiv">
                 <div className="banner">
                     <div className="bg_image">
                         <div className="bg_image_container">
-                            <img src="http://placekitten.com/700/200" width="100%" alt="" />
+                            {me.surname === "Iudica" ? (
+                                // ! DA VEDERE CON GAETANO
+                                <img src="./hero.jpg" width="100%" alt="hero" />
+                            ) : (
+                                <img src="http://placekitten.com/700/200" width="100%" alt="" />
+                            )}
                         </div>
                     </div>
                     <Container className="myContainer">
@@ -22,8 +30,10 @@ const ProfileBanner = () => {
                                     <img
                                         className="profile_foto_image"
                                         src={me.image}
-                                        width="52%"
-                                        alt=""
+                                        width="150"
+                                        height="150"
+                                        alt="user_img"
+                                        onClick={() => setModalShow(true)}
                                     />
                                 </div>
                                 <div className="d-flex section_icon">
@@ -45,17 +55,16 @@ const ProfileBanner = () => {
                                         </svg>
                                     </div>
                                     <div className="icona_Profilo">
-                                        <Button
-                                            className="pencil_button"
-                                            size="sm"
-                                            variant="outline-light"
-                                        >
-                                            <img
-                                                src="./icons/icons8-matita-48.png"
-                                                width="50%"
-                                                alt=""
-                                            />
-                                        </Button>
+                                        {me.surname === "Iudica" && (
+                                            <Button
+                                                className="rounded-pill"
+                                                size="sm"
+                                                variant={theme ? "outline-light" : "light"}
+                                                onClick={() => setModalShow(true)}
+                                            >
+                                                <i className="bi bi-pencil text-dark fs-4"></i>
+                                            </Button>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +78,6 @@ const ProfileBanner = () => {
                                             <h5>{me.title}</h5>
                                         </div>
                                     </Col>
-                                    <Col>{/* <h4>Sezione icona Epicode</h4> */}</Col>
                                 </Row>
 
                                 <div className="d-flex mb-3">
@@ -88,7 +96,10 @@ const ProfileBanner = () => {
                                         Disponibile per
                                     </Button>
 
-                                    <Button className="mx-2 profilo_btn" variant="outline-info">
+                                    <Button
+                                        className="mx-2 profilo_btn fw-bold"
+                                        variant="outline-primary"
+                                    >
                                         Aggiungi sezione del profilo
                                     </Button>
 
@@ -155,6 +166,7 @@ const ProfileBanner = () => {
                     </Container>
                 </div>
             </div>
+            <FormUpdateUser show={modalShow} onHide={() => setModalShow(false)} />
         </div>
     );
 };

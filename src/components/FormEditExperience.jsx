@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getExperienceAction, putExperienceAction, URL, TOKEN } from "../redux/action";
+import { getExperienceAction, putExperienceAction, URL, TOKEN, setLoaderAction } from "../redux/action";
 
 const FormEditExperience = (props) => {
     const dispatch = useDispatch();
@@ -38,6 +38,7 @@ const FormEditExperience = (props) => {
         };
         console.log(experience);
         if (file) {
+            dispatch(setLoaderAction(true))
             let formData = new FormData();
             formData.append("experience", file);
             try {

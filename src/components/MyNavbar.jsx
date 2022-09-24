@@ -24,7 +24,7 @@ export const MyNavbar = () => {
                 <Navbar.Brand>
                     <i className="bi bi-linkedin blue fs-1"></i>
                 </Navbar.Brand>
-                <Form className="d-flex myForm">
+                <Form className="d-flex myForm" id="searchBar">
                     <i className="bi bi-search fs-5"></i>
                     <Form.Control
                         type="search"

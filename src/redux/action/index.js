@@ -16,529 +16,507 @@ export const SET_LOADER_COMMENTS = "SET_LOADER_COMMENTS";
 
 export const URL = "https://striveschool-api.herokuapp.com/api";
 export const TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWI3OTZkNzlhNTAwMTUwOTAyZWQiLCJpYXQiOjE2NjM1NzI4NTcsImV4cCI6MTY2NDc4MjQ1N30.j_4RiP8WxrixXsZ5dbWKH8rj-w44Os-v5Mxa_rlKoHU";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNjNjVhMjRjYzU2YzAwMTU2ZjE5NmYiLCJpYXQiOjE2NjQ5MDI1NjIsImV4cCI6MTY2NjExMjE2Mn0.4jZL6KZ7o9ZaE-hK7vX9Dl3td0RH3oDY4fd-xcgXNVE";
 
 // TOKEN GAETANO:
 // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWQ2ZTZkNzlhNTAwMTUwOTAyZWYiLCJpYXQiOjE2NjM1NzMzNTksImV4cCI6MTY2NDc4Mjk1OX0.us8ZDLkkp2W8eygVu_nKJqPUZKcBcc9Q66_L9RtWObc"
 
 // TOKEN DANIELE:
-// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MWI3OTZkNzlhNTAwMTUwOTAyZWQiLCJpYXQiOjE2NjM1NzI4NTcsImV4cCI6MTY2NDc4MjQ1N30.j_4RiP8WxrixXsZ5dbWKH8rj-w44Os-v5Mxa_rlKoHU"
+// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNjNjVhMjRjYzU2YzAwMTU2ZjE5NmYiLCJpYXQiOjE2NjQ5MDI1NjIsImV4cCI6MTY2NjExMjE2Mn0.4jZL6KZ7o9ZaE-hK7vX9Dl3td0RH3oDY4fd-xcgXNVE"
 
 export const setMeAction = () => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderAction(true)) 
-      const response = await fetch(URL + "/profile/me", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderAction(true));
+            const response = await fetch(URL + "/profile/me", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        dispatch({
-          type: SET_ME,
-          payload: data,
-        });
-        dispatch(getMyLastCommentsAction(data._id));
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: SET_ME,
+                    payload: data,
+                });
+                dispatch(getMyLastCommentsAction(data._id));
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const setLoaderAction = (val) => ({
-  type: SET_LOADER,
-  payload: val,
+    type: SET_LOADER,
+    payload: val,
 });
 
 export const setLoaderCommentsAction = (val) => ({
     type: SET_LOADER_COMMENTS,
     payload: val,
-  });
+});
 
 export const getUserByIdAction = (userId) => {
-  return async (dispatch, getState) => {
-    try {
-       dispatch( setLoaderAction(true)) 
-      const response = await fetch(URL + "/profile/" + userId, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderAction(true));
+            const response = await fetch(URL + "/profile/" + userId, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        dispatch({
-          type: SET_ME,
-          payload: data,
-        });
-        dispatch(getMyLastCommentsAction(data._id));
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-      dispatch( setLoaderAction(false)) 
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: SET_ME,
+                    payload: data,
+                });
+                dispatch(getMyLastCommentsAction(data._id));
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+            dispatch(setLoaderAction(false));
+        }
+    };
 };
 
 export const updateMeAction = (user) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderAction(true)) 
-      console.log(user);
-      const response = await fetch(URL + "/profile/", {
-        method: "PUT",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderAction(true));
+            console.log(user);
+            const response = await fetch(URL + "/profile/", {
+                method: "PUT",
+                body: JSON.stringify(user),
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        dispatch({
-          type: UPDATE_ME,
-          payload: data,
-        });
-        dispatch( setLoaderAction(false)) 
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-      dispatch( setLoaderAction(false)) 
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: UPDATE_ME,
+                    payload: data,
+                });
+                dispatch(setLoaderAction(false));
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+            dispatch(setLoaderAction(false));
+        }
+    };
 };
 
 export const getAllUsersAction = () => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await fetch(URL + "/profile/", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(URL + "/profile/", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        dispatch({
-          type: GET_ALL_USERS,
-          payload: data,
-        });
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: GET_ALL_USERS,
+                    payload: data,
+                });
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const getAllCommentsAction = () => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderCommentsAction(true)) 
-      const response = await fetch(URL + "/posts/", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderCommentsAction(true));
+            const response = await fetch(URL + "/posts/", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        data = data.slice(-20, data.length);
-        data = data.reverse();
-        dispatch({
-          type: GET_ALL_COMMENTS,
-          payload: data,
-        });
-        dispatch( setLoaderCommentsAction(false)) 
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-      dispatch( setLoaderCommentsAction(false)) 
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                data = data.slice(-20, data.length);
+                data = data.reverse();
+                dispatch({
+                    type: GET_ALL_COMMENTS,
+                    payload: data,
+                });
+                dispatch(setLoaderCommentsAction(false));
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+            dispatch(setLoaderCommentsAction(false));
+        }
+    };
 };
 
 export const getMyLastCommentsAction = (userId) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderAction(true)) 
-      const response = await fetch(URL + "/posts/", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderAction(true));
+            const response = await fetch(URL + "/posts/", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        data = data.slice(-50, data.length);
-        data = data.reverse();
-        data = data.filter((comment) => comment.user._id === userId);
-        data = data.slice(0, 5);
-        dispatch({
-          type: SET_MY_LAST_COMMENTS,
-          payload: data,
-        });
-        console.log(data);
-        dispatch( setLoaderAction(false)) 
-      }
-    } catch (err) {
-        dispatch( setLoaderAction(false)) 
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                data = data.slice(-50, data.length);
+                data = data.reverse();
+                data = data.filter((comment) => comment.user._id === userId);
+                data = data.slice(0, 5);
+                dispatch({
+                    type: SET_MY_LAST_COMMENTS,
+                    payload: data,
+                });
+                console.log(data);
+                dispatch(setLoaderAction(false));
+            }
+        } catch (err) {
+            dispatch(setLoaderAction(false));
+            console.log(err);
+        }
+    };
 };
 
 export const getCommentsByIdAction = (postId) => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await fetch(URL + "/posts/" + postId, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
+    return async (dispatch, getState) => {
+        try {
+            const response = await fetch(URL + "/posts/" + postId, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        dispatch({
-          type: SET_COMMENT_BY_ID,
-          payload: data,
-        });
-        console.log(data);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                dispatch({
+                    type: SET_COMMENT_BY_ID,
+                    payload: data,
+                });
+                console.log(data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 };
 
 export const getAllExperiencesAction = (userId) => {
-  return async (dispatch, getState) => {
-    try {
-      console.log(userId);
-      const response = await fetch(
-        URL + "/profile/" + userId + "/experiences",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${TOKEN}`,
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            console.log(userId);
+            const response = await fetch(URL + "/profile/" + userId + "/experiences", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        dispatch({
-          type: GET_ALL_EXPERIENCES,
-          payload: data,
-        });
-      }
-    } catch (err) {
-        dispatch( setLoaderAction(false)) 
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                dispatch({
+                    type: GET_ALL_EXPERIENCES,
+                    payload: data,
+                });
+            }
+        } catch (err) {
+            dispatch(setLoaderAction(false));
+            console.log(err);
+        }
+    };
 };
 
 export const getExperienceAction = (userId, expId) => {
-  return async (dispatch, getState) => {
-    try {
-         
-      console.log(userId);
-      const response = await fetch(
-        URL + "/profile/" + userId + "/experiences/" + expId,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${TOKEN}`,
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            console.log(userId);
+            const response = await fetch(URL + "/profile/" + userId + "/experiences/" + expId, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        dispatch({
-          type: GET_EXPERIENCE,
-          payload: data,
-        });
-        
-      }
-    } catch (err) {
-        dispatch( setLoaderAction(false)) 
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                dispatch({
+                    type: GET_EXPERIENCE,
+                    payload: data,
+                });
+            }
+        } catch (err) {
+            dispatch(setLoaderAction(false));
+            console.log(err);
+        }
+    };
 };
 
 export const postNewExperiencesAction = (userId, experience, file) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderAction(true)) 
-      console.log(userId);
-      const response = await fetch(
-        URL + "/profile/" + userId + "/experiences",
-        {
-          method: "POST",
-          body: JSON.stringify(experience),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${TOKEN}`,
-          },
-        }
-      );
-
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        if (file) {
-          let formData = new FormData();
-          formData.append("experience", file);
-          try {
-            let response2 = await fetch(
-              URL +
-                "/profile/" +
-                userId +
-                "/experiences/" +
-                data._id +
-                "/picture",
-              {
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderAction(true));
+            console.log(userId);
+            const response = await fetch(URL + "/profile/" + userId + "/experiences", {
                 method: "POST",
-                body: formData,
+                body: JSON.stringify(experience),
                 headers: {
-                  Authorization: `Bearer ${TOKEN}`,
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
                 },
-              }
-            );
+            });
 
-            if (response2.ok) {
-              dispatch(getAllExperiencesAction(userId));
-              dispatch( setLoaderAction(false)) 
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                if (file) {
+                    let formData = new FormData();
+                    formData.append("experience", file);
+                    try {
+                        let response2 = await fetch(
+                            URL + "/profile/" + userId + "/experiences/" + data._id + "/picture",
+                            {
+                                method: "POST",
+                                body: formData,
+                                headers: {
+                                    Authorization: `Bearer ${TOKEN}`,
+                                },
+                            }
+                        );
+
+                        if (response2.ok) {
+                            dispatch(getAllExperiencesAction(userId));
+                            dispatch(setLoaderAction(false));
+                        }
+                    } catch (e) {}
+                } else {
+                    dispatch(getAllExperiencesAction(userId));
+                    dispatch(setLoaderAction(false));
+                }
             }
-          } catch (e) {}
-        } else {
-          dispatch(getAllExperiencesAction(userId));
-          dispatch( setLoaderAction(false)) 
+        } catch (err) {
+            dispatch(setLoaderAction(false));
+            console.log(err);
         }
-      }
-    } catch (err) {
-        dispatch( setLoaderAction(false)) 
-      console.log(err);
-    }
-  };
+    };
 };
 
 export const delteteExperienceAction = (userId, expId) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderAction(true)) 
-      const response = await fetch(
-        URL + "/profile/" + userId + "/experiences/" + expId,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${TOKEN}`,
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderAction(true));
+            const response = await fetch(URL + "/profile/" + userId + "/experiences/" + expId, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        console.log("eliminata");
-        dispatch(getAllExperiencesAction(userId));
-        dispatch( setLoaderAction(false)) 
-      }
-    } catch (err) {
-        dispatch( setLoaderAction(false)) 
-      console.log(err);
-    }
-  };
+            if (response.ok) {
+                console.log("eliminata");
+                dispatch(getAllExperiencesAction(userId));
+                dispatch(setLoaderAction(false));
+            }
+        } catch (err) {
+            dispatch(setLoaderAction(false));
+            console.log(err);
+        }
+    };
 };
 
 export const putExperienceAction = (userId, expId, experience) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderAction(true)) 
-      const response = await fetch(
-        URL + "/profile/" + userId + "/experiences/" + expId,
-        {
-          method: "PUT",
-          body: JSON.stringify(experience),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${TOKEN}`,
-          },
-        }
-      );
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderAction(true));
+            const response = await fetch(URL + "/profile/" + userId + "/experiences/" + expId, {
+                method: "PUT",
+                body: JSON.stringify(experience),
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        dispatch(getAllExperiencesAction(userId));
-        dispatch( setLoaderAction(false)) 
-      }
-    } catch (err) {
-      console.log(err);
-      dispatch( setLoaderAction(false)) 
-    }
-  };
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                dispatch(getAllExperiencesAction(userId));
+                dispatch(setLoaderAction(false));
+            }
+        } catch (err) {
+            console.log(err);
+            dispatch(setLoaderAction(false));
+        }
+    };
 };
 
 export const postNews = (post, file) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderCommentsAction(true)) 
-      let response = await fetch(URL + "/posts/", {
-        method: "POST",
-        body: JSON.stringify(post),
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
-
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        if (file) {
-          let formData = new FormData();
-          formData.append("post", file);
-          try {
-            let response2 = await fetch(URL + "/posts/" + data._id, {
-              method: "POST",
-              body: formData,
-              headers: {
-                Authorization: `Bearer ${TOKEN}`,
-              },
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderCommentsAction(true));
+            let response = await fetch(URL + "/posts/", {
+                method: "POST",
+                body: JSON.stringify(post),
+                headers: {
+                    "content-type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
+                },
             });
 
-            if (response2.ok) {
-              dispatch(getAllCommentsAction());
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                if (file) {
+                    let formData = new FormData();
+                    formData.append("post", file);
+                    try {
+                        let response2 = await fetch(URL + "/posts/" + data._id, {
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                Authorization: `Bearer ${TOKEN}`,
+                            },
+                        });
+
+                        if (response2.ok) {
+                            dispatch(getAllCommentsAction());
+                        }
+                    } catch (e) {}
+                } else {
+                    dispatch(getAllCommentsAction());
+                }
             }
-          } catch (e) {}
-        } else {
-          dispatch(getAllCommentsAction());
+        } catch (err) {
+            dispatch(setLoaderCommentsAction(false));
         }
-      }
-    } catch (err) {
-        dispatch( setLoaderCommentsAction(false)) 
-    }
-  };
+    };
 };
 
 export const deleteNews = (postId) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderCommentsAction(true)) 
-      let response = await fetch(URL + "/posts/" + postId, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderCommentsAction(true));
+            let response = await fetch(URL + "/posts/" + postId, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
 
-      if (response.ok) {
-        dispatch(getAllCommentsAction());
-        dispatch(getCommentsByIdAction(postId));
-      }
-    } catch (err) {
-      console.log(err);
-      dispatch( setLoaderCommentsAction(false)) 
-    }
-  };
+            if (response.ok) {
+                dispatch(getAllCommentsAction());
+                dispatch(getCommentsByIdAction(postId));
+            }
+        } catch (err) {
+            console.log(err);
+            dispatch(setLoaderCommentsAction(false));
+        }
+    };
 };
 
 export const getNewsById = (postId) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderAction(true)) 
-      let response = await fetch(URL + "/posts/" + postId, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
-
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        dispatch({
-          type: SET_COMMENT_BY_ID,
-          payload: data,
-        });
-        dispatch( setLoaderAction(false)) 
-      }
-    } catch (err) {
-        dispatch( setLoaderAction(false)) 
-    }
-  };
-};
-export const PutNews = (postId, post, file) => {
-  return async (dispatch, getState) => {
-    try {
-        dispatch( setLoaderCommentsAction(true)) 
-      let response = await fetch(URL + "/posts/" + postId, {
-        method: "PUT",
-        body: JSON.stringify(post),
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${TOKEN}`,
-        },
-      });
-
-      if (response.ok) {
-        if (file) {
-          let formData = new FormData();
-          formData.append("post", file);
-          try {
-            let response2 = await fetch(URL + "/posts/" + postId, {
-              method: "POST",
-              body: formData,
-              headers: {
-                Authorization: `Bearer ${TOKEN}`,
-              },
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderAction(true));
+            let response = await fetch(URL + "/posts/" + postId, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${TOKEN}`,
+                },
             });
 
-            if (response2.ok) {
-              dispatch(getAllCommentsAction());
-              dispatch(getCommentsByIdAction(postId));
+            if (response.ok) {
+                let data = await response.json();
+                console.log(data);
+                dispatch({
+                    type: SET_COMMENT_BY_ID,
+                    payload: data,
+                });
+                dispatch(setLoaderAction(false));
             }
-          } catch (e) {}
-        } else {
-          dispatch(getAllCommentsAction());
-          dispatch(getCommentsByIdAction(postId));
+        } catch (err) {
+            dispatch(setLoaderAction(false));
         }
-      }
-    } catch (err) {
-        dispatch( setLoaderCommentsAction(false)) 
-    }
-  };
+    };
+};
+export const PutNews = (postId, post, file) => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch(setLoaderCommentsAction(true));
+            let response = await fetch(URL + "/posts/" + postId, {
+                method: "PUT",
+                body: JSON.stringify(post),
+                headers: {
+                    "content-type": "application/json",
+                    Authorization: `Bearer ${TOKEN}`,
+                },
+            });
+
+            if (response.ok) {
+                if (file) {
+                    let formData = new FormData();
+                    formData.append("post", file);
+                    try {
+                        let response2 = await fetch(URL + "/posts/" + postId, {
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                Authorization: `Bearer ${TOKEN}`,
+                            },
+                        });
+
+                        if (response2.ok) {
+                            dispatch(getAllCommentsAction());
+                            dispatch(getCommentsByIdAction(postId));
+                        }
+                    } catch (e) {}
+                } else {
+                    dispatch(getAllCommentsAction());
+                    dispatch(getCommentsByIdAction(postId));
+                }
+            }
+        } catch (err) {
+            dispatch(setLoaderCommentsAction(false));
+        }
+    };
 };
 
 export const setLightAction = () => ({
-  type: SET_LIGHT_THEME,
-  payload: true,
+    type: SET_LIGHT_THEME,
+    payload: true,
 });
 
 export const setDarkAction = () => ({
-  type: SET_DARK_THEME,
-  payload: false,
+    type: SET_DARK_THEME,
+    payload: false,
 });
 
 export const setExpIdAction = (expId) => ({
-  type: SET_EXP_ID,
-  payload: expId,
+    type: SET_EXP_ID,
+    payload: expId,
 });

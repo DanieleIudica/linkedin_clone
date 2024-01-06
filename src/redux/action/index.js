@@ -16,7 +16,7 @@ export const SET_LOADER_COMMENTS = "SET_LOADER_COMMENTS";
 
 export const URL = "https://striveschool-api.herokuapp.com/api";
 export const TOKEN =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTcxY2RlNjBkOGEyMDAwMThhNDhhNDkiLCJpYXQiOjE3MDE5NTcwOTQsImV4cCI6MTcwMzE2NjY5NH0.UT7DRnnaqMUO7cEYFF-uV5v0IZ5DYqFE6K7f5Nb4iik";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTk5NDg0YThlMDNjYTAwMTg1YzMzM2UiLCJpYXQiOjE3MDQ1NDQzMzEsImV4cCI6MTcwNTc1MzkzMX0.UhCNze50vAizfyRnE_Lc_CfszEB7E18GxzGKocaihps";
 
 
 export const setMeAction = () => {
